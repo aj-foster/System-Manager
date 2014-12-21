@@ -11,11 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141221022952) do
+ActiveRecord::Schema.define(version: 20141221032558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "hstore"
+
+  create_table "alerts", force: true do |t|
+    t.string   "name"
+    t.string   "message"
+    t.integer  "multiplicity"
+    t.integer  "alertable_id"
+    t.string   "alertable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "alerts", ["alertable_id", "alertable_type"], name: "index_alerts_on_alertable_id_and_alertable_type", using: :btree
 
   create_table "disk_statuses", force: true do |t|
     t.integer  "disk_id"

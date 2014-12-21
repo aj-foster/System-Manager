@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  message: MyString
+  multiplicity: 1
+  alertable_id: 
+  alertable_type: Alertable
+
+two:
+  name: MyString
+  message: MyString
+  multiplicity: 1
+  alertable_id: 
+  alertable_type: Alertable
