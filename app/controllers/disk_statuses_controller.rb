@@ -1,0 +1,2 @@
+class DiskStatusesController < ApplicationController
+end
