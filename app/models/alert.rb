@@ -1,3 +1,5 @@
 class Alert < ActiveRecord::Base
-  belongs_to :alertable, polymorphic: true
+
+	# Relationship
+	belongs_to :alertable, polymorphic: true
 end

@@ -1,3 +1,5 @@
 class DiskStatus < ActiveRecord::Base
-  belongs_to :disk
+
+	# Relationship
+	belongs_to :disk
 end

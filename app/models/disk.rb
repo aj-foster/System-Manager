@@ -1,3 +1,7 @@
 class Disk < ActiveRecord::Base
-  belongs_to :machine
+
+	# Relationships
+
+	belongs_to :machine
+	has_many :alerts, as: :alertable
 end
