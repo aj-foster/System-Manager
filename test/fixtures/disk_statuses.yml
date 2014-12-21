@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  disk_id: 
+  lifetime: 1
+  reallocations: 1
+  pending: 1
+  uncorrectable: 1
+  healthy: false
+  ssd_wear: 1
+
+two:
+  disk_id: 
+  lifetime: 1
+  reallocations: 1
+  pending: 1
+  uncorrectable: 1
+  healthy: false
+  ssd_wear: 1
