@@ -11,11 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141220231218) do
+ActiveRecord::Schema.define(version: 20141221020753) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "hstore"
+
+  create_table "disks", force: true do |t|
+    t.integer  "machine_id"
+    t.string   "name"
+    t.string   "manufacturer"
+    t.string   "serial_number"
+    t.string   "part_number"
+    t.integer  "capacity"
+    t.string   "type"
+    t.string   "usage"
+    t.date     "warranty_exp"
+    t.text     "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "disks", ["machine_id"], name: "index_disks_on_machine_id", using: :btree
 
   create_table "machines", force: true do |t|
     t.string   "name"
