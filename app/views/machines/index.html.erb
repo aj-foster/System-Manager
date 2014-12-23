@@ -1,1 +1,9 @@
 Machines Index
+
+<% if !@machines.blank? %>
+	<% for machine in @machines %>
+		- Machine: <%= machine.name %>
+	<% end %>
+<% else %>
+	
+<% end %>
