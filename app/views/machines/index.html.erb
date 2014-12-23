@@ -1,9 +1,10 @@
-Machines Index
-
+<% page_title "Machines" %>
+			<article class="focus focus--top">
 <% if !@machines.blank? %>
 	<% for machine in @machines %>
-		- Machine: <%= machine.name %>
+				<p>Machine: <%= machine.name %></p>
 	<% end %>
 <% else %>
-	
+				<p>There are no machines to display.</p>
 <% end %>
+			</article>

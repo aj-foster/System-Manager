@@ -1,15 +1,13 @@
-Machine New/Edit Form
-
-<%= form_for @machine do |f| %>
-	<% if @machine.errors.any? %>
-		<% @machine.errors.full_messages.each do |msg| %>
-			<p><%= msg %></p>
-		<% end %>
+				<%= form_for @machine do |f| %>
+<% if @machine.errors.any? %>
+	<% @machine.errors.full_messages.each do |msg| %>
+					<p><%= msg %></p>
 	<% end %>
-
-	<%= f.text_field :name %><br>
-	<%= f.text_field :location %><br>
-	<%= f.text_field :ip_address %><br>
-
-	<%= f.submit %>
 <% end %>
+
+					<%= f.text_field :name %><br>
+					<%= f.text_field :location %><br>
+					<%= f.text_field :ip_address %><br>
+
+					<%= f.submit %>
+				<% end %>
