@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
 
+	# Devise Configuration
+	devise_for :users
+
+	# App Root Configuration
+	authenticated :user do
+		root :to => 'alerts#index', :as => :authenticated_root
+	end
+	root :to => redirect('/users/sign_in')
+
 	concern :alertable do
 		resources :alerts
 	end
