@@ -1,9 +1,10 @@
-Disks Index
-
+<% page_title "Disks" %>
+			<article class="focus focus--top">
 <% if !@disks.blank? %>
 	<% for disk in @disks %>
-		- Disk: <%= disk.name %>
+				<p>Disk: <%= disk.name %></p>
 	<% end %>
 <% else %>
-	
+				<p>There are no disks to display.</p>
 <% end %>
+			</article>
