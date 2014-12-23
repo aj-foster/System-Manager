@@ -1,8 +1,10 @@
 <% page_title "Alerts" %>
 			<article class="focus focus--top">
-				Alerts Index
-			</article>
-
-			<article class="focus">
-				Secondary thing
+<% if !@alerts.blank? %>
+	<% for alert in @alerts %>
+				<p>Alert: <%= alert.name %></p>
+	<% end %>
+<% else %>
+				<p>There are no alerts to display.</p>
+<% end %>
 			</article>
