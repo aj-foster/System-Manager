@@ -1,5 +1,7 @@
 class MachinesController < ApplicationController
 
+	before_filter :authenticate_user!
+
 	def index
 		@machines = Machine.order(name: :asc)
 	end

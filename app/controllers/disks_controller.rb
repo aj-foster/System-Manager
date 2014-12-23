@@ -1,5 +1,7 @@
 class DisksController < ApplicationController
 
+	before_filter :authenticate_user!
+
 	def index
 		@disks = Disk.order(name: :asc)
 	end
