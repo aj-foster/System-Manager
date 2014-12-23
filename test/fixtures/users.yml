@@ -1,11 +1,25 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# Model Tests
 
-one:
-  name: MyString
-  role: MyString
+user_no_name:
+  email: user_no_name@email.com
+  encrypted_password: Some password
+  role: Some role
   send_alerts: false
 
-two:
-  name: MyString
-  role: MyString
+user_no_email:
+  name: Some name
+  encrypted_password: Some password
+  role: Some role
+  send_alerts: false
+
+user_no_password:
+  name: Some name
+  email: user_no_password@email.com
+  role: Some role
+  send_alerts: false
+
+user_no_role:
+  name: Some name
+  email: user_no_role@email.com
+  encrypted_password: Some password
   send_alerts: false
