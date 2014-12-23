@@ -7,7 +7,7 @@ class Disk < ActiveRecord::Base
 
 	# Properties
 
-	validates :name, :serial_number, :capacity, :type, presence: true
+	validates :name, :serial_number, :capacity, :format, presence: true
 	validates :name, uniqueness: { case_sensitive: false }
 	
 end

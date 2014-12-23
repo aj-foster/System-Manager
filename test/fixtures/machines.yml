@@ -11,3 +11,10 @@ two:
   location: MyString
   ip_address: MyString
   info: 
+
+
+# Model Tests
+
+machine_no_name:
+  location: Some location
+  ip_address: 127.0.0.1

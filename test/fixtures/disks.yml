@@ -7,7 +7,7 @@ one:
   serial_number: MyString
   part_number: MyString
   capacity: 1
-  type: 
+  format: 
   usage: MyString
   warranty_exp: 2014-12-20
   notes: MyText
@@ -19,7 +19,71 @@ two:
   serial_number: MyString
   part_number: MyString
   capacity: 1
-  type: 
+  format: 
   usage: MyString
   warranty_exp: 2014-12-20
   notes: MyText
+
+# Model Tests
+
+disk_no_name:
+  manufacturer: Some manufacturer
+  serial_number: Some serial number
+  part_number: Some part number
+  capacity: 1000
+  format: HDD
+  usage: Some usage
+  warranty_exp: 2020-01-01
+  notes: Some notes
+
+disk_no_serial_number:
+  name: Some name
+  manufacturer: Some manufacturer
+  part_number: Some part number
+  capacity: 1000
+  format: HDD
+  usage: Some usage
+  warranty_exp: 2020-01-01
+  notes: Some notes
+
+disk_no_capacity:
+  name: Some name
+  manufacturer: Some manufacturer
+  serial_number: Some serial number
+  part_number: Some part number
+  format: HDD
+  usage: Some usage
+  warranty_exp: 2020-01-01
+  notes: Some notes
+
+disk_no_format:
+  name: Some name
+  manufacturer: Some manufacturer
+  serial_number: Some serial number
+  part_number: Some part number
+  capacity: 1000
+  usage: Some usage
+  warranty_exp: 2020-01-01
+  notes: Some notes
+
+disk_nonunique_name_1:
+  name: Same Disk Name
+  manufacturer: Some manufacturer
+  serial_number: Some serial number
+  part_number: Some part number
+  capacity: 1000
+  format: HDD
+  usage: Some usage
+  warranty_exp: 2020-01-01
+  notes: Some notes
+
+disk_nonunique_name_2:
+  name: Same Disk Name
+  manufacturer: Some manufacturer
+  serial_number: Some serial number
+  part_number: Some part number
+  capacity: 1000
+  format: HDD
+  usage: Some usage
+  warranty_exp: 2020-01-01
+  notes: Some notes
