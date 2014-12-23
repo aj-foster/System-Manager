@@ -17,3 +17,12 @@ two:
   uncorrectable: 1
   healthy: false
   ssd_wear: 1
+
+# Model Tests
+
+disk_status_no_disk:
+  lifetime: 1
+  reallocations: 1
+  pending: 1
+  uncorrectable: 1
+  healthy: false
