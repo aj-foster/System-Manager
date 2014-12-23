@@ -1,1 +1,9 @@
 Disks Index
+
+<% if !@disks.blank? %>
+	<% for disk in @disks %>
+		- Disk: <%= disk.name %>
+	<% end %>
+<% else %>
+	
+<% end %>

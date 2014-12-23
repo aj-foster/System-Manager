@@ -1,1 +1,15 @@
 Disk New/Edit Form
+
+<%= form_for @disk do |f| %>
+	<% if @disk.errors.any? %>
+		<% @disk.errors.full_messages.each do |msg| %>
+			<p><%= msg %></p>
+		<% end %>
+	<% end %>
+
+	<%= f.text_field :name %><br>
+	<%= f.text_field :capacity %><br>
+	<%= f.text_field :serial_number %><br>
+
+	<%= f.submit %>
+<% end %>
