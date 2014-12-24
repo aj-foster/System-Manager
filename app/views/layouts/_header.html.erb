@@ -1,6 +1,17 @@
 		<header class="header mbf">
 			<div class="actionBar group">
-				<div class="icon icon--s fr">Logout</div>
+				<a class="button button--light fl">
+					<svg class="icon"><use xlink:href="#icon-menu"></use></svg>
+				</a>
+<% if user_signed_in? %>
+				<%= link_to destroy_user_session_path, method: :delete, class: "button button--light fr" do %>
+					<svg class="icon"><use xlink:href="#icon-logout"></use></svg>
+				<% end %>
+<% else %>
+				<%= link_to new_user_session_path, class: "button button--light fr" do %>
+					<svg class="icon"><use xlink:href="#icon-login"></use></svg>
+				<% end %>
+<% end %>
 			</div>
 			<div class="header-title">
 				<h1 class="mbf"><%= yield :page_title %></h1>
