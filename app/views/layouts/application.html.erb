@@ -9,11 +9,14 @@
 	<body>
 <%= render 'layouts/icon_defs' %>
 <%= render 'layouts/header' %>
+<%= render 'layouts/nav' %>
 
 		<section class="page">
 <%= yield %>
 		</section>
 
 <%= render 'layouts/footer' %>
+
+		<div class="modalOverlay"></div>
 	</body>
 </html>
