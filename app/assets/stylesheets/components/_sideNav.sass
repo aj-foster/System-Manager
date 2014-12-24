@@ -5,12 +5,23 @@
 	padding: 1em
 	position: fixed
 	top: 0
+	-webkit-transform: translateX(-15em)
+	-moz-transform: translateX(-15em)
+	-ms-transform: translateX(-15em)
+	-o-transform: translateX(-15em)
 	transform: translateX(-15em)
+	-webkit-transition: -webkit-transform 0.2s ease-in-out
+	-moz-transition: -moz-transform 0.2s ease-in-out
+	-o-transition: -o-transform 0.2s ease-in-out
 	transition: transform 0.2s ease-in-out
 	width: 15em
 	z-index: 3
 
 .sideNav.is-active
+	-webkit-transform: translateX(0)
+	-moz-transform: translateX(0)
+	-ms-transform: translateX(0)
+	-o-transform: translateX(0)
 	transform: translateX(0)
 
 .modalOverlay
@@ -22,9 +33,14 @@
 	position: fixed
 	right: 0
 	top: 0
+	-webkit-transition: opacity 0.2s
+	-moz-transition: opacity 0.2s
+	-o-transition: opacity 0.2s
 	transition: opacity 0.2s
 	width: 100%
+	visibility: hidden
 	z-index: 2
 
 .modalOverlay.is-active
 	opacity: 1
+	visibility: visible
