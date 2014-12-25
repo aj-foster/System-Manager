@@ -4,11 +4,11 @@
 					<svg class="icon"><use xlink:href="#icon-menu"></use></svg>
 				</a>
 <% if user_signed_in? %>
-				<%= link_to destroy_user_session_path, method: :delete, class: "button button--light fr" do %>
+				<%= link_to destroy_user_session_path, method: :delete, class: "button button--light fr mrf" do %>
 					<svg class="icon"><use xlink:href="#icon-logout"></use></svg>
 				<% end %>
 <% else %>
-				<%= link_to new_user_session_path, class: "button button--light fr" do %>
+				<%= link_to new_user_session_path, class: "button button--light fr mrf" do %>
 					<svg class="icon"><use xlink:href="#icon-login"></use></svg>
 				<% end %>
 <% end %>

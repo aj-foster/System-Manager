@@ -1,12 +1,13 @@
 <% page_title "Alert: #{@alert.name}" %>
-			<article class="focus focus--top">
-				<nav>
+			<article class="focus focus--top group">
+				<p>
 					<a class="button button--icon" href="<%= url_for alerts_path %>">
 						<svg class="icon"><use xlink:href="#icon-back"></use></svg>
 					</a>
 					<a class="button button--icon" href="<%= url_for root_path %>">
 						<svg class="icon"><use xlink:href="#icon-home"></use></svg>
 					</a>
-				</nav>
+					<span class="tsm fr">Last seen <%= @alert.updated_at.strftime("%l:%M%P on %-m/%-d/%y") %>.
+				</p>
 				Alert: <%= @alert.message %>
 			</article>
