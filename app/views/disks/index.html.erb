@@ -1,8 +1,30 @@
 <% page_title "Disks" %>
 			<article class="focus focus--top">
+				<p>
+					<a class="button button--icon" href="<%= url_for root_path %>">
+						<svg class="icon"><use xlink:href="#icon-home"></use></svg>
+					</a>
+					<a class="button button--icon" href="<%= url_for new_disk_path %>">
+						<svg class="icon"><use xlink:href="#icon-plus"></use></svg>
+					</a>
+					<span class="tsm fr"><%= pluralize(@disks.count, "Disk") %> Registered</span>
+				</p>
+
+				<p class="twb">Disks currently registered:</p>
 <% if !@disks.blank? %>
 	<% for disk in @disks %>
-				<p>Disk: <%= disk.name %></p>
+				<p class="mbf">
+					<%= link_to disk, class: "button button--icon" do %>
+						<svg class="icon"><use xlink:href="#icon-view"></use></svg>
+					<% end %>
+					<%= link_to edit_disk_path(disk), class: "button button--icon" do %>
+						<svg class="icon"><use xlink:href="#icon-edit"></use></svg>
+					<% end %>
+					<%= link_to disk, method: :delete, class: "button button--icon" do %>
+						<svg class="icon"><use xlink:href="#icon-cross"></use></svg>
+					<% end %>
+					<span class="twb"><%= disk.name %></span> &mdash; <%= pluralize(disk.alerts.count, "Alerts") %>
+				</p>
 	<% end %>
 <% else %>
 				<p>There are no disks to display.</p>
