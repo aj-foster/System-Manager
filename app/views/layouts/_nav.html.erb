@@ -2,26 +2,27 @@
 			<h2 class="tac">System Manager</h2>
 			<hr>
 <% if user_signed_in? %>
+			<p class="twb mbs">Menu</p>
 			<ul class="lsn">
-				<li><%= link_to "Home", root_path %></li>
-				<li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+				<li><%= link_to "Home", root_path, class: "lnb" %></li>
+				<li><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "lnb" %></li>
 			</ul>
 
 			<p class="twb mbs">Alerts</p>
 			<ul class="lsn">
-				<li><%= link_to "View Alerts", alerts_path %></li>
+				<li><%= link_to "View Alerts", alerts_path, class: "lnb" %></li>
 			</ul>
 
 			<p class="twb mbs">Machines</p>
 			<ul class="lsn">
-				<li><%= link_to "View Machines", machines_path %></li>
-				<li><%= link_to "Add Machine", new_machine_path %></li>
+				<li><%= link_to "View Machines", machines_path, class: "lnb" %></li>
+				<li><%= link_to "Add Machine", new_machine_path, class: "lnb" %></li>
 			</ul>
 
 			<p class="twb mbs">Disks</p>
 			<ul class="lsn">
-				<li><%= link_to "View Disks", disks_path %></li>
-				<li><%= link_to "Add Disk", new_disk_path %></li>
+				<li><%= link_to "View Disks", disks_path, class: "lnb" %></li>
+				<li><%= link_to "Add Disk", new_disk_path, class: "lnb" %></li>
 			</ul>
 <% else %>
 			<p><em>System Manager</em> is a web application for monitoring and managing computers and hard drives. If you've stumbled upon this by accident, sorry! There isn't much to see here. If you arrived here purposefully, then feel free to <%= link_to "login", new_user_session_path %>.</p>
