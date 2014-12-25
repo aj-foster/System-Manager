@@ -10,8 +10,8 @@
 					<span class="tsm fr"><%= pluralize(@disks.count, "Disk") %> Registered</span>
 				</p>
 
-				<p class="twb">Disks currently registered:</p>
 <% if !@disks.blank? %>
+				<p class="twb">Disks currently registered:</p>
 	<% for disk in @disks %>
 				<p class="mbf">
 					<%= link_to disk, class: "button button--icon" do %>
@@ -20,7 +20,7 @@
 					<%= link_to edit_disk_path(disk), class: "button button--icon" do %>
 						<svg class="icon"><use xlink:href="#icon-edit"></use></svg>
 					<% end %>
-					<%= link_to disk, method: :delete, class: "button button--icon" do %>
+					<%= link_to disk, method: :delete, data: {confirm: "Are you sure you want to remove #{disk.name}?"}, class: "button button--icon" do %>
 						<svg class="icon"><use xlink:href="#icon-cross"></use></svg>
 					<% end %>
 					<span class="twb"><%= disk.name %></span> &mdash; <%= pluralize(disk.alerts.count, "Alerts") %>

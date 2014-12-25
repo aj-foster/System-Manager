@@ -10,9 +10,8 @@
 					<span class="tsm fr"><%= pluralize(@machines.count, "Computer") %> Registered</span>
 				</p>
 
-				<p class="twb">Machines currently registered:</p>
-
 <% if !@machines.blank? %>
+				<p class="twb">Machines currently registered:</p>
 	<% for machine in @machines %>
 				<p>
 					<%= link_to machine, class: "button button--icon" do %>
@@ -21,7 +20,7 @@
 					<%= link_to edit_machine_path(machine), class: "button button--icon" do %>
 						<svg class="icon"><use xlink:href="#icon-edit"></use></svg>
 					<% end %>
-					<%= link_to machine, method: :delete, class: "button button--icon" do %>
+					<%= link_to machine, method: :delete, data: {confirm: "Are you sure you want to remove #{machine.name}?"}, class: "button button--icon" do %>
 						<svg class="icon"><use xlink:href="#icon-cross"></use></svg>
 					<% end %>
 					<span class="twb"><%= machine.name %></span> &mdash; <%= pluralize(machine.alerts.count, "Alerts") %>
