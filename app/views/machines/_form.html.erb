@@ -4,10 +4,23 @@
 					<p><%= msg %></p>
 	<% end %>
 <% end %>
+					<fieldset>
+						<p class="textField">
+							<%= f.label :name, "Machine Name" %>
+							<span class="required">*</span><br>
+							<%= f.text_field :name, placeholder: "Rob's Desktop", required: true, autofocus: true %>
+						</p>
+						<p class="textField">
+							<%= f.label :location, "Physical Location" %><br>
+							<%= f.text_field :location, placeholder: "PSB 354" %>
+						</p>
+						<p class="textField">
+							<%= f.label :ip_address, "IP Address" %><br>
+							<%= f.text_field :ip_address, placeholder: "10.0.0.1" %>
+						</p>
 
-					<%= f.text_field :name %><br>
-					<%= f.text_field :location %><br>
-					<%= f.text_field :ip_address %><br>
-
-					<%= f.submit %>
+						<p>
+							<%= f.submit "Register Machine" %>
+						</p>
+					</fieldset>
 				<% end %>
