@@ -4,10 +4,52 @@
 					<p><%= msg %></p>
 	<% end %>
 <% end %>
+					<fieldset>
+						<p class="textField">
+							<%= f.label :name, "Disk Name" %>
+							<span class="required"> *</span><br>
+							<%= f.text_field :name, placeholder: "hg80ua", required: true %>
+						</p>
+						<p class="textField">
+							<%= f.label :capacity, "Capacity (in GB)" %>
+							<span class="required"> *</span><br>
+							<%= f.text_field :capacity, placeholder: "8000", required: true %>
+						</p>
+						<p class="textField">
+							<%= f.label :format, "Format (ex. HDD, SSD)" %>
+							<span class="required"> *</span><br>
+							<%= f.text_field :format, placeholder: "HDD", required: true %>
+						</p>
 
-					<%= f.text_field :name %><br>
-					<%= f.text_field :capacity %><br>
-					<%= f.text_field :serial_number %><br>
+						<p class="textField">
+							<%= f.label :manufacturer %><br>
+							<%= f.text_field :manufacturer, placeholder: "HGST" %>
+						</p>
+						<p class="textField">
+							<%= f.label :serial_number %>
+							<span class="required"> *</span><br>
+							<%= f.text_field :serial_number, placeholder: "2EG20GDG", required: true %>
+						</p>
+						<p class="textField">
+							<%= f.label :part_number, "Part or Model Number" %><br>
+							<%= f.text_field :part_number, placeholder: "HUH728080ALE600" %>
+						</p>
 
-					<%= f.submit %>
+						<p class="textField">
+							<%= f.label :usage %><br>
+							<%= f.text_field :usage, placeholder: "/b1" %>
+						</p>
+						<p class="textField">
+							<%= f.label :warranty_exp %><br>
+							<%= f.date_field :warranty_exp, placeholder: "November 2017" %>
+						</p>
+						<p class="textField">
+							<%= f.label :notes %><br>
+							<%= f.text_area :notes %>
+						</p>
+
+						<p>
+							<%= f.submit %>
+						</p>
+					</fieldset>
 				<% end %>
