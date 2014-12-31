@@ -29,16 +29,6 @@
 						<svg class="tile-icon tile-icon--b"><use xlink:href="#icon-cross"></use></svg>
 					<% end %>
 				</div>
-				<!-- <p class="mbf">
-					<%= link_to alert, class: "button button--icon" do %>
-						<svg class="icon"><use xlink:href="#icon-view"></use></svg>
-					<% end %>
-					<%= link_to alert, method: :delete, data: {confirm: "Are you sure you want to remove #{alert.name}?"}, class: "button button--icon" do %>
-						<svg class="icon"><use xlink:href="#icon-cross"></use></svg>
-					<% end %>
-					<span class="twb"><%= alert.name %><%= " (" + alert.alertable.name + ")" if alert.alertable.present? %></span> &mdash; 
-					<%= alert.message.truncate(50, separator: ' ') %>
-				</p> -->
 	<% end %>
 <% else %>
 				<p>There are no alerts to display.</p>

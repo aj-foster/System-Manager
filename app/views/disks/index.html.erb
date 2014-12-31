@@ -16,6 +16,8 @@
 				<div class="tile">
 					<%= link_to disk, class: "tile-action" do %>
 						<svg class="tile-icon tile-icon--a"><use xlink:href="#icon-view"></use></svg>
+					<% end %>
+					<%= link_to disk, class: "tile-action tile-action--focus" do %>
 						<div class="tile-text">
 							<div class="tile-title">
 								<%= disk.name %>
@@ -28,22 +30,10 @@
 							</div>
 						</div>
 					<% end %>
-					<%= link_to edit_disk_path(disk), class: "tile-action tile-action--r" do %>
+					<%= link_to edit_disk_path(disk), class: "tile-action" do %>
 						<svg class="tile-icon tile-icon--b"><use xlink:href="#icon-edit"></use></svg>
 					<% end %>
 				</div>
-				<!-- <p class="mbf">
-					<%= link_to disk, class: "button button--icon" do %>
-						<svg class="icon"><use xlink:href="#icon-view"></use></svg>
-					<% end %>
-					<%= link_to edit_disk_path(disk), class: "button button--icon" do %>
-						<svg class="icon"><use xlink:href="#icon-edit"></use></svg>
-					<% end %>
-					<%= link_to disk, method: :delete, data: {confirm: "Are you sure you want to remove #{disk.name}?"}, class: "button button--icon" do %>
-						<svg class="icon"><use xlink:href="#icon-cross"></use></svg>
-					<% end %>
-					<span class="twb"><%= disk.name %></span> &mdash; <%= pluralize(disk.alerts.count, "Alerts") %>
-				</p> -->
 	<% end %>
 <% else %>
 				<p>There are no disks to display.</p>
