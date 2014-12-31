@@ -4,8 +4,11 @@
 	margin: auto
 	margin-bottom: $b-space-l
 	max-width: $b-maxWidth
-	padding: 1em
+	padding: 1em 0
 	position: relative
+
+	+respond-to($b-maxWidth)
+		padding: 1em
 	
 	&:before
 		box-shadow: 0 2px 4px 0 $c-shadow

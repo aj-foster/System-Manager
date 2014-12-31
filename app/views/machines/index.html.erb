@@ -11,11 +11,11 @@
 				</p>
 
 <% if !@machines.blank? %>
-				<p class="twb">Machines currently registered:</p>
+				<p class="subheader subheader--padded">Machines</p>
 	<% for machine in @machines %>
 				<div class="tile">
 					<%= link_to machine, class: "tile-action" do %>
-						<svg class="tile-icon"><use xlink:href="#icon-view"></use></svg>
+						<svg class="tile-icon tile-icon--a"><use xlink:href="#icon-view"></use></svg>
 						<div class="tile-text">
 							<div class="tile-title">
 								<%= machine.name %>
@@ -26,6 +26,9 @@
 								<%= machine.ip_address %>
 							</div>
 						</div>
+					<% end %>
+					<%= link_to edit_machine_path(machine), class: "tile-action fr" do %>
+						<svg class="tile-icon tile-icon--b"><use xlink:href="#icon-edit"></use></svg>
 					<% end %>
 				</div>
 				<!-- <p>
