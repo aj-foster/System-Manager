@@ -1,14 +1,7 @@
 <% page_title "Alerts" %>
 			<article class="focus focus--top">
-				<p>
-					<a class="button button--icon" href="<%= url_for root_path %>">
-						<svg class="icon"><use xlink:href="#icon-home"></use></svg>
-					</a>
-					<span class="tsm fr"><%= pluralize(@alerts.count, "Alert") %></span>
-				</p>
-
 <% if !@alerts.blank? %>
-				<p class="subheader subheader--padded">Alerts</p>
+				<p class="subheader subheader--padded">Alerts (<%= @alerts.count %>)</p>
 	<% for alert in @alerts %>
 				<div class="tile">
 					<%= link_to alert, class: "tile-action" do %>
