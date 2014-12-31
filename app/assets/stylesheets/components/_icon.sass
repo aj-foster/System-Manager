@@ -1,7 +1,24 @@
 .icon
+	border-bottom: 0px none
+	box-sizing: content-box
+	color: $c-text-secondary
+	display: inline-block
+	font-size: 1.5em
+	height: 1em
+	padding: em(12px, 1em)
+
+	&:active, &:focus, &:hover
+		color: $c-text-disabled
+
+.icon--light
+	color: $c-text-invert-primary
+
+	&:active, &:focus, &:hover
+		color: $c-text-invert-disabled
+
+.icon > svg
 	display: inline-block
 	fill: currentColor
 	height: 1em
 	margin: auto
 	width: 1em
-	vertical-align: middle
