@@ -8,8 +8,28 @@
 				</p>
 
 <% if !@alerts.blank? %>
+				<p class="subheader subheader--padded">Alerts</p>
 	<% for alert in @alerts %>
-				<p class="mbf">
+				<div class="tile">
+					<%= link_to alert, class: "tile-action" do %>
+						<svg class="tile-icon tile-icon--a"><use xlink:href="#icon-view"></use></svg>
+					<% end %>
+					<%= link_to alert, class: "tile-action tile-action--focus" do %>
+						<div class="tile-text">
+							<div class="tile-title">
+								<%= alert.name %>
+								<%= "(" + alert.alertable.name + ")" if alert.alertable.present? %>
+							</div>
+							<div class="tile-subtitle">
+								<%= alert.message %>
+							</div>
+						</div>
+					<% end %>
+					<%= link_to alert, method: :delete, data: {confirm: "Are you sure you want to remove #{alert.name}?"}, class: "tile-action" do %>
+						<svg class="tile-icon tile-icon--b"><use xlink:href="#icon-cross"></use></svg>
+					<% end %>
+				</div>
+				<!-- <p class="mbf">
 					<%= link_to alert, class: "button button--icon" do %>
 						<svg class="icon"><use xlink:href="#icon-view"></use></svg>
 					<% end %>
@@ -18,7 +38,7 @@
 					<% end %>
 					<span class="twb"><%= alert.name %><%= " (" + alert.alertable.name + ")" if alert.alertable.present? %></span> &mdash; 
 					<%= alert.message.truncate(50, separator: ' ') %>
-				</p>
+				</p> -->
 	<% end %>
 <% else %>
 				<p>There are no alerts to display.</p>
