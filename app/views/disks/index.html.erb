@@ -11,9 +11,28 @@
 				</p>
 
 <% if !@disks.blank? %>
-				<p class="twb">Disks currently registered:</p>
+				<p class="subheader subheader--padded">Disks</p>
 	<% for disk in @disks %>
-				<p class="mbf">
+				<div class="tile">
+					<%= link_to disk, class: "tile-action" do %>
+						<svg class="tile-icon tile-icon--a"><use xlink:href="#icon-view"></use></svg>
+						<div class="tile-text">
+							<div class="tile-title">
+								<%= disk.name %>
+								<%= "(" + pluralize(disk.alerts.count, 'Alert') + ")" if disk.alerts.any? %>
+							</div>
+							<div class="tile-subtitle">
+								<%= disk.format %> &mdash;
+								<%= disk.nice_capacity %>
+								<%= "&mdash; ".html_safe + disk.location unless disk.location.blank? %>
+							</div>
+						</div>
+					<% end %>
+					<%= link_to edit_disk_path(disk), class: "tile-action fr" do %>
+						<svg class="tile-icon tile-icon--b"><use xlink:href="#icon-edit"></use></svg>
+					<% end %>
+				</div>
+				<!-- <p class="mbf">
 					<%= link_to disk, class: "button button--icon" do %>
 						<svg class="icon"><use xlink:href="#icon-view"></use></svg>
 					<% end %>
@@ -24,7 +43,7 @@
 						<svg class="icon"><use xlink:href="#icon-cross"></use></svg>
 					<% end %>
 					<span class="twb"><%= disk.name %></span> &mdash; <%= pluralize(disk.alerts.count, "Alerts") %>
-				</p>
+				</p> -->
 	<% end %>
 <% else %>
 				<p>There are no disks to display.</p>
