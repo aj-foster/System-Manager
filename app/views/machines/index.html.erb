@@ -1,14 +1,8 @@
 <% page_title "Machines" %>
 			<article class="focus focus--top">
-				<p>
-					<a class="button button--icon" href="<%= url_for root_path %>">
-						<svg class="icon"><use xlink:href="#icon-home"></use></svg>
-					</a>
-					<a class="button button--icon" href="<%= url_for new_machine_path %>">
-						<svg class="icon"><use xlink:href="#icon-plus"></use></svg>
-					</a>
-					<span class="tsm fr"><%= pluralize(@machines.count, "Computer") %> Registered</span>
-				</p>
+				<a class="icon icon--float" href="<%= url_for new_machine_path %>">
+					<svg><use xlink:href="#icon-plus"></use></svg>
+				</a>
 
 <% if !@machines.blank? %>
 				<p class="subheader subheader--padded">Machines</p>

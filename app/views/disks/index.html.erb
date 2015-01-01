@@ -1,17 +1,10 @@
 <% page_title "Disks" %>
 			<article class="focus focus--top">
-				<p>
-					<a class="button button--icon" href="<%= url_for root_path %>">
-						<svg class="icon"><use xlink:href="#icon-home"></use></svg>
-					</a>
-					<a class="button button--icon" href="<%= url_for new_disk_path %>">
-						<svg class="icon"><use xlink:href="#icon-plus"></use></svg>
-					</a>
-					<span class="tsm fr"><%= pluralize(@disks.count, "Disk") %> Registered</span>
-				</p>
-
+				<a class="icon icon--float" href="<%= url_for new_disk_path %>">
+					<svg><use xlink:href="#icon-plus"></use></svg>
+				</a>
 <% if !@disks.blank? %>
-				<p class="subheader subheader--padded">Disks</p>
+				<p class="subheader subheader--padded">Disks (<%= @disks.count %>)</p>
 	<% for disk in @disks %>
 				<div class="tile">
 					<%= link_to disk, class: "tile-action" do %>
