@@ -3,7 +3,14 @@ class MachinesController < ApplicationController
 	before_filter :authenticate_user!
 
 	def index
-		@machines = Machine.order(name: :asc)
+		@machines = Machine.includes(:alerts).order(name: :asc)
+		@machines_with_alerts = []
+
+		@machines.each do |machine|
+			if machine.alerts.count > 0
+				@machines_with_alerts << machine
+			end
+		end
 	end
 
 	def show
