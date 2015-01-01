@@ -27,8 +27,12 @@
 	background: #1565c0
 	border-radius: 50%
 	box-shadow: 0 2px 4px 0 $c-shadow
+	padding: (1em / 3)
 	position: absolute
-	right: 1em
-	top: -1em
+	left: (1em / 3)
+	top: 0.875em
 
 	@extend .icon--light
+
+	+respond-to($b-maxWidth)
+		left: 1em

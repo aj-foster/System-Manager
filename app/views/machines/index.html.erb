@@ -1,8 +1,8 @@
 <% page_title "Machines" %>
 			<article class="focus focus--top">
-				<a class="icon icon--float" href="<%= url_for new_machine_path %>">
+				<%= link_to new_machine_path, class: "icon icon--float", title: "Add new machine" do %>
 					<svg><use xlink:href="#icon-plus"></use></svg>
-				</a>
+				<% end %>
 
 <% if !@machines.blank? %>
 				<p class="subheader subheader--padded">Machines</p>

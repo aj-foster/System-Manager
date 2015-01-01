@@ -10,4 +10,10 @@
 	border-bottom-right-radius: 0
 	margin: auto
 	max-width: $b-maxWidth
-	padding: 1em
+	padding: 1em 0
+
+	+respond-to($b-maxWidth)
+		padding: 1em
+
+	h1
+		padding: 0.5em
