@@ -1,4 +1,14 @@
 <% page_title "Machine: #{@machine.name}" %>
 			<article class="focus focus--top">
-				<p>Machine: <%= @machine.name %></p>
+				<div class="group">
+					<a class="icon fl" href="<%= url_for machines_path %>">
+						<svg><use xlink:href="#icon-back"></use></svg>
+					</a>
+					<div class="subheader fr">
+						Last checked <%= @machine.updated_at.strftime("%l:%M%P on %-m/%-d/%y") %>
+					</div>
+				</div>
+
+				<p class="subheader">Location</p>
+				<p><%= @machine.nice_location %></p>
 			</article>

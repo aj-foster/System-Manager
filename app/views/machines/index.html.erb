@@ -17,10 +17,7 @@
 								<%= machine.name %>
 								<%= "(" + pluralize(machine.alerts.count, 'Alert') + ")" if machine.alerts.any? %>
 							</div>
-							<div class="tile-subtitle">
-								<%= machine.location %> &mdash;
-								<%= machine.ip_address %>
-							</div>
+							<div class="tile-subtitle"><%= machine.nice_location %></div>
 						</div>
 					<% end %>
 					<%= link_to edit_machine_path(machine), class: "tile-action" do %>

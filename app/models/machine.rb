@@ -7,5 +7,19 @@ class Machine < ActiveRecord::Base
 
 	# Properties
 	validates :name, presence: true
+
+	# Methods
+
+	def nice_location
+		if location.blank? && ip_address.blank?
+			"Location Unknown"
+		elsif ip_address.blank?
+			"#{location}"
+		elsif location.blank?
+			"#{ip_address}"
+		else
+			"#{location} &mdash; #{ip_address}".html_safe
+		end
+	end
 	
 end
