@@ -1,15 +1,26 @@
 .button
 	border-bottom: 0px none
-	color: $c-text-secondary
+	color: $c-text
 	display: inline-block
-	font-size: 1.5em
-	margin-right: 1em
+	height: 2.25em
+	line-height: 2.25em
+	margin: 0 0.25em
+	min-width: 4em
+	padding: 0 0.5em
+	text-transform: uppercase
 
 	&:active, &:focus, &:hover
-		color: $c-text-disabled
+		background-color: $c-btn-hover
 
 .button--light
 	color: $c-text-invert-primary
 
 	&:active, &:focus, &:hover
-		color: $c-text-invert-disabled
+		background-color: $c-btn-invert-hover
+		color: $c-text-invert-primary
+
+.button--danger
+	color: $c-danger
+
+.button--first
+	margin-left: 0.5em
