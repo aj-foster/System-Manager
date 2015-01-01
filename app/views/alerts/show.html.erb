@@ -1,13 +1,25 @@
 <% page_title "Alert: #{@alert.name}" %>
 			<article class="focus focus--top group">
-				<p>
-					<a class="button button--icon" href="<%= url_for alerts_path %>">
-						<svg class="icon"><use xlink:href="#icon-back"></use></svg>
+				<div class="group">
+					<a class="icon fl" href="<%= url_for alerts_path %>">
+						<svg><use xlink:href="#icon-back"></use></svg>
 					</a>
-					<a class="button button--icon" href="<%= url_for root_path %>">
-						<svg class="icon"><use xlink:href="#icon-home"></use></svg>
-					</a>
-					<span class="tsm fr">Last seen <%= @alert.updated_at.strftime("%l:%M%P on %-m/%-d/%y") %>.
-				</p>
-				Alert: <%= @alert.message %>
+					<div class="subheader fr">
+						Last noted <%= @alert.updated_at.strftime("%l:%M%P on %-m/%-d/%y") %>
+					</div>
+				</div>
+
+				<p class="subheader">Message</p>
+				<p><%= @alert.message %></p>
+
+<% if @alert.alertable.present? %>
+				<div class="divider"></div>
+				<p class="subheader">Related Property</p>
+				<p><%= @alert.alertable.name %> (<%= @alert.alertable_type %>)</p>
+<% end %>
+
+				<div class="divider mbm"></div>
+				<div>
+					<%= link_to "Remove", @alert, method: :delete, class: "button button--danger button--first", data: {confirm: "Are you sure you want to remove the alert #{@alert.name}?"} %>
+				</div>
 			</article>
