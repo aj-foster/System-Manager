@@ -3,7 +3,14 @@ class DisksController < ApplicationController
 	before_filter :authenticate_user!
 
 	def index
-		@disks = Disk.order(name: :asc)
+		@disks = Disk.includes(:alerts).order(name: :asc)
+		@disks_with_alerts = []
+
+		@disks.each do |disk|
+			if disk.alerts.count > 0
+				@disks_with_alerts << disk
+			end
+		end
 	end
 
 	def show

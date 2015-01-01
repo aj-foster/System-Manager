@@ -3,8 +3,36 @@
 				<%= link_to new_disk_path, class: "icon icon--float", title: "Add new disk" do %>
 					<svg><use xlink:href="#icon-plus"></use></svg>
 				<% end %>
+<% if !@disks_with_alerts.blank? %>
+				<p class="subheader subheader--padded">Disks with Alerts (<%= @disks_with_alerts.count %>)</p>
+	<% for disk in @disks_with_alerts %>
+				<div class="tile">
+					<%= link_to disk, class: "tile-action" do %>
+						<svg class="tile-icon tile-icon--a"><use xlink:href="#icon-view"></use></svg>
+					<% end %>
+					<%= link_to disk, class: "tile-action tile-action--focus" do %>
+						<div class="tile-text">
+							<div class="tile-title">
+								<%= disk.name %>
+								<%= "(" + pluralize(disk.alerts.count, 'Alert') + ")" if disk.alerts.any? %>
+							</div>
+							<div class="tile-subtitle">
+								<%= disk.format %> &mdash;
+								<%= disk.nice_capacity %>
+								<%= "&mdash; ".html_safe + disk.location unless disk.location.blank? %>
+							</div>
+						</div>
+					<% end %>
+					<%= link_to edit_disk_path(disk), class: "tile-action" do %>
+						<svg class="tile-icon tile-icon--b"><use xlink:href="#icon-edit"></use></svg>
+					<% end %>
+				</div>
+	<% end %>
+				<div class="divider"></div>
+<% end %>
+
 <% if !@disks.blank? %>
-				<p class="subheader subheader--padded">Disks (<%= @disks.count %>)</p>
+				<p class="subheader subheader--padded">All Disks (<%= @disks.count %>)</p>
 	<% for disk in @disks %>
 				<div class="tile">
 					<%= link_to disk, class: "tile-action" do %>
