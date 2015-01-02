@@ -49,7 +49,7 @@
 	<% end %>
 <% end %>
 
-				<div class="divider mbm"></div>
+				<div class="divider"></div>
 				<div class="list">
 <% if @disk.part_number.present? %>
 					<div class="list-item">
@@ -69,7 +69,7 @@
 					</div>
 				</div>
 
-				<div class="divider mbm"></div>
+				<div class="divider"></div>
 				<div>
 					<%= link_to "Edit", edit_disk_path(@disk), class: "button button--first" %>
 					<%= link_to "Remove", @disk, method: :delete, class: "button button--danger", data: {confirm: "Are you sure you want to remove the disk #{@disk.name}?"} %>

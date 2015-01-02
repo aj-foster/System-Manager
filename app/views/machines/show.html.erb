@@ -12,7 +12,7 @@
 				<p class="subheader">Location</p>
 				<p><%= @machine.nice_location %></p>
 <% unless @machine.info.blank? %>
-				<div class="divider mbm"></div>
+				<div class="divider"></div>
 				<div class="list">
 	<% @machine.info.sort.each do |key, value| %>
 					<div class="list-item">
@@ -23,7 +23,7 @@
 				</div>
 <% end %>
 
-				<div class="divider mbm"></div>
+				<div class="divider"></div>
 				<div>
 					<%= link_to "Edit", edit_machine_path(@machine), class: "button button--first" %>
 					<%= link_to "Remove", @machine, method: :delete, class: "button button--danger", data: {confirm: "Are you sure you want to remove the machine #{@machine.name}?"} %>
