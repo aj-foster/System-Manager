@@ -2,7 +2,6 @@
 	display: flex
 	height: 4.5em
 	justify-content: space-around
-	max-width: 100%
 
 	&:active, &:focus, &:hover
 		background-color: $c-hover
@@ -31,9 +30,8 @@
 	padding-top: 1em
 
 .tile-subtitle
-	color: $c-text-secondary
-	font-size: em(14px)
-	max-width: 100%
-	white-space: nowrap
 	overflow: hidden
 	text-overflow: ellipsis
+	white-space: nowrap
+
+	@extend .subtitle
