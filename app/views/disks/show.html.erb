@@ -1,4 +1,77 @@
 <% page_title "Disk: #{@disk.name}" %>
 			<article class="focus focus--top">
-				<p>Disk: <%= @disk.name %>, capacity: <%= @disk.capacity %></p>
+				<div class="group">
+					<a class="icon fl" href="<%= url_for disks_path %>">
+						<svg><use xlink:href="#icon-back"></use></svg>
+					</a>
+					<div class="subheader fr">
+						Last noted <%= @disk.updated_at.strftime("%l:%M%P on %-m/%-d/%y") %>
+					</div>
+				</div>
+
+				<div class="list">
+					<div class="list-item">
+						<span class="list-key">Summary</span>
+						<span class="list-value"><%= @disk.manufacturer %> <%= @disk.nice_capacity %> <%= @disk.format %></span>
+					</div>
+					<div class="list-item">
+						<span class="list-key">Serial Number</span>
+						<span class="list-value"><%= @disk.serial_number %></span>
+					</div>
+					<div class="list-item">
+						<span class="list-key">Location</span>
+						<span class="list-value"><%= @disk.location %></span>
+					</div>
+				</div>
+
+<% if !@disk.alerts.blank? %>
+				<div class="divider"></div>
+				<p class="subheader subheader--padded">Alerts (<%= @disk.alerts.count %>)</p>
+	<% for alert in @disk.alerts %>
+				<div class="tile">
+					<%= link_to alert, class: "tile-action" do %>
+						<svg class="tile-icon tile-icon--a"><use xlink:href="#icon-view"></use></svg>
+					<% end %>
+					<%= link_to alert, class: "tile-action tile-action--focus" do %>
+						<div class="tile-text">
+							<div class="tile-title">
+								<%= alert.name %>
+							</div>
+							<div class="tile-subtitle">
+								<%= alert.message %>
+							</div>
+						</div>
+					<% end %>
+					<%= link_to alert, method: :delete, data: {confirm: "Are you sure you want to remove #{alert.name}?"}, class: "tile-action" do %>
+						<svg class="tile-icon tile-icon--b"><use xlink:href="#icon-cross"></use></svg>
+					<% end %>
+				</div>
+	<% end %>
+<% end %>
+
+				<div class="divider mbm"></div>
+				<div class="list">
+<% if @disk.part_number.present? %>
+					<div class="list-item">
+						<span class="list-key">Part Number</span>
+						<span class="list-value"><%= @disk.part_number %></span>
+					</div>
+<% end %>
+<% if @disk.warranty_exp.present? %>
+					<div class="list-item">
+						<span class="list-key">Warranty Exp.</span>
+						<span class="list-value"><%= @disk.warranty_exp.strftime("%-m/%-d/%y") %></span>
+					</div>
+<% end %>
+					<div class="list-item">
+						<span class="list-key">Notes</span>
+						<span class="list-value"><%= @disk.notes || "None" %></span>
+					</div>
+				</div>
+
+				<div class="divider mbm"></div>
+				<div>
+					<%= link_to "Edit", edit_disk_path(@disk), class: "button button--first" %>
+					<%= link_to "Remove", @disk, method: :delete, class: "button button--danger", data: {confirm: "Are you sure you want to remove the disk #{@disk.name}?"} %>
+				</div>
 			</article>
