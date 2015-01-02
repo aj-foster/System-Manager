@@ -24,7 +24,7 @@ class Disk < ActiveRecord::Base
 
 	def location
 		if machine.blank?
-			""
+			"Location Unknown"
 		elsif usage.blank?
 			"#{machine.name}"
 		else
