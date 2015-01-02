@@ -1,6 +1,6 @@
 <% page_title "Machines" %>
 			<article class="focus focus--top">
-				<%= link_to new_machine_path, class: "icon icon--float", title: "Add new machine" do %>
+				<%= link_to new_machine_path, class: "icon icon--float", title: "Add Machine" do %>
 					<svg><use xlink:href="#icon-plus"></use></svg>
 				<% end %>
 
@@ -8,10 +8,10 @@
 				<p class="subheader subheader--padded">Machines with Alerts (<%= @machines_with_alerts.count %>)</p>
 	<% for machine in @machines_with_alerts %>
 				<div class="tile">
-					<%= link_to machine, class: "icon tile-icon--a" do %>
+					<%= link_to machine, class: "icon tile-icon--a", title: "View Machine" do %>
 						<svg><use xlink:href="#icon-view"></use></svg>
 					<% end %>
-					<%= link_to machine, class: "tile-action tile-action--focus" do %>
+					<%= link_to machine, class: "tile-action tile-action--focus", title: "View Machine" do %>
 						<div class="tile-text">
 							<div class="tile-title">
 								<%= machine.name %>
@@ -20,7 +20,7 @@
 							<div class="tile-subtitle"><%= machine.nice_location %></div>
 						</div>
 					<% end %>
-					<%= link_to edit_machine_path(machine), class: "icon tile-icon--b" do %>
+					<%= link_to edit_machine_path(machine), class: "icon tile-icon--b", title: "Edit Machine" do %>
 						<svg><use xlink:href="#icon-edit"></use></svg>
 					<% end %>
 				</div>
@@ -32,10 +32,10 @@
 				<p class="subheader subheader--padded">All Machines (<%= @machines.count %>)</p>
 	<% for machine in @machines %>
 				<div class="tile">
-					<%= link_to machine, class: "icon tile-icon--a" do %>
+					<%= link_to machine, class: "icon tile-icon--a", title: "View Machine" do %>
 						<svg><use xlink:href="#icon-view"></use></svg>
 					<% end %>
-					<%= link_to machine, class: "tile-action tile-action--focus" do %>
+					<%= link_to machine, class: "tile-action tile-action--focus", title: "View Machine" do %>
 						<div class="tile-text">
 							<div class="tile-title">
 								<%= machine.name %>
@@ -47,7 +47,7 @@
 							</div>
 						</div>
 					<% end %>
-					<%= link_to edit_machine_path(machine), class: "icon tile-icon--b" do %>
+					<%= link_to edit_machine_path(machine), class: "icon tile-icon--b", title: "Edit Machine" do %>
 						<svg><use xlink:href="#icon-edit"></use></svg>
 					<% end %>
 				</div>

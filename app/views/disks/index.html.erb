@@ -1,16 +1,16 @@
 <% page_title "Disks" %>
 			<article class="focus focus--top">
-				<%= link_to new_disk_path, class: "icon icon--float", title: "Add new disk" do %>
+				<%= link_to new_disk_path, class: "icon icon--float", title: "Add Disk" do %>
 					<svg><use xlink:href="#icon-plus"></use></svg>
 				<% end %>
 <% if !@disks_with_alerts.blank? %>
 				<p class="subheader subheader--padded">Disks with Alerts (<%= @disks_with_alerts.count %>)</p>
 	<% for disk in @disks_with_alerts %>
 				<div class="tile">
-					<%= link_to disk, class: "icon tile-icon--a" do %>
+					<%= link_to disk, class: "icon tile-icon--a", title: "View Disk" do %>
 						<svg><use xlink:href="#icon-view"></use></svg>
 					<% end %>
-					<%= link_to disk, class: "tile-action tile-action--focus" do %>
+					<%= link_to disk, class: "tile-action tile-action--focus", title: "View Disk" do %>
 						<div class="tile-text">
 							<div class="tile-title">
 								<%= disk.name %>
@@ -23,7 +23,7 @@
 							</div>
 						</div>
 					<% end %>
-					<%= link_to edit_disk_path(disk), class: "icon tile-icon--b" do %>
+					<%= link_to edit_disk_path(disk), class: "icon tile-icon--b", title: "Edit Disk" do %>
 						<svg><use xlink:href="#icon-edit"></use></svg>
 					<% end %>
 				</div>
@@ -35,10 +35,10 @@
 				<p class="subheader subheader--padded">All Disks (<%= @disks.count %>)</p>
 	<% for disk in @disks %>
 				<div class="tile">
-					<%= link_to disk, class: "icon tile-icon--a" do %>
+					<%= link_to disk, class: "icon tile-icon--a", title: "View Disk" do %>
 						<svg><use xlink:href="#icon-view"></use></svg>
 					<% end %>
-					<%= link_to disk, class: "tile-action tile-action--focus" do %>
+					<%= link_to disk, class: "tile-action tile-action--focus", title: "View Disk" do %>
 						<div class="tile-text">
 							<div class="tile-title">
 								<%= disk.name %>
@@ -51,7 +51,7 @@
 							</div>
 						</div>
 					<% end %>
-					<%= link_to edit_disk_path(disk), class: "icon tile-icon--b" do %>
+					<%= link_to edit_disk_path(disk), class: "icon tile-icon--b", title: "Edit Disk" do %>
 						<svg><use xlink:href="#icon-edit"></use></svg>
 					<% end %>
 				</div>

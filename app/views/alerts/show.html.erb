@@ -1,9 +1,9 @@
 <% page_title "Alert: #{@alert.name}" %>
 			<article class="focus focus--top group">
 				<div class="group">
-					<a class="icon fl" href="<%= url_for alerts_path %>">
+					<%= link_to alerts_path, class: "icon fl", title: "Alerts Index" do %>
 						<svg><use xlink:href="#icon-back"></use></svg>
-					</a>
+					<% end %>
 					<div class="subheader fr">
 						Last noted <%= @alert.updated_at.strftime("%l:%M%P on %-m/%-d/%y") %>
 					</div>
@@ -20,6 +20,6 @@
 
 				<div class="divider"></div>
 				<div>
-					<%= link_to "Remove", @alert, method: :delete, class: "button button--danger button--first", data: {confirm: "Are you sure you want to remove the alert #{@alert.name}?"} %>
+					<%= link_to "Remove", @alert, method: :delete, class: "button button--danger button--first", data: {confirm: "Are you sure you want to remove the alert #{@alert.name}?"}, title: "Remove Alert" %>
 				</div>
 			</article>

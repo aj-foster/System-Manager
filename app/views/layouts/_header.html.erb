@@ -1,20 +1,20 @@
 		<header class="header mbf">
 			<div class="actionBar group">
 				<div class="fl">
-					<a class="icon icon--light" id="sideNav-button" href="#">
+					<a class="icon icon--light" id="sideNav-button" href="#" title="Menu">
 						<svg><use xlink:href="#icon-menu"></use></svg>
 					</a>
 				</div>
 				<div class="fr">
-					<%= link_to root_path, class: "icon icon--light" do %>
+					<%= link_to root_path, class: "icon icon--light", title: "Home" do %>
 						<svg><use xlink:href="#icon-home"></use></svg>
 					<% end %>
 <% if user_signed_in? %>
-					<%= link_to destroy_user_session_path, method: :delete, class: "icon icon--light" do %>
+					<%= link_to destroy_user_session_path, method: :delete, class: "icon icon--light", title: "Log out" do %>
 						<svg><use xlink:href="#icon-logout"></use></svg>
 					<% end %>
 <% else %>
-					<%= link_to new_user_session_path, class: "icon icon--light" do %>
+					<%= link_to new_user_session_path, class: "icon icon--light", title: "Log in" do %>
 						<svg><use xlink:href="#icon-login"></use></svg>
 					<% end %>
 <% end %>

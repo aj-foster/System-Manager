@@ -4,10 +4,10 @@
 				<p class="subheader subheader--padded">Alerts (<%= @alerts.count %>)</p>
 	<% for alert in @alerts %>
 				<div class="tile">
-					<%= link_to alert, class: "icon tile-icon--a" do %>
+					<%= link_to alert, class: "icon tile-icon--a", title: "View Alert" do %>
 						<svg><use xlink:href="#icon-view"></use></svg>
 					<% end %>
-					<%= link_to alert, class: "tile-action tile-action--focus" do %>
+					<%= link_to alert, class: "tile-action tile-action--focus", title: "View Alert" do %>
 						<div class="tile-text">
 							<div class="tile-title">
 								<%= alert.name %>
@@ -18,7 +18,7 @@
 							</div>
 						</div>
 					<% end %>
-					<%= link_to alert, method: :delete, data: {confirm: "Are you sure you want to remove #{alert.name}?"}, class: "icon tile-icon--b" do %>
+					<%= link_to alert, method: :delete, data: {confirm: "Are you sure you want to remove #{alert.name}?"}, class: "icon tile-icon--b", title: "Remove Alert" do %>
 						<svg><use xlink:href="#icon-cross"></use></svg>
 					<% end %>
 				</div>
