@@ -8,8 +8,8 @@
 				<p class="subheader subheader--padded">Machines with Alerts (<%= @machines_with_alerts.count %>)</p>
 	<% for machine in @machines_with_alerts %>
 				<div class="tile">
-					<%= link_to machine, class: "tile-action" do %>
-						<svg class="tile-icon tile-icon--a"><use xlink:href="#icon-view"></use></svg>
+					<%= link_to machine, class: "icon tile-icon--a" do %>
+						<svg><use xlink:href="#icon-view"></use></svg>
 					<% end %>
 					<%= link_to machine, class: "tile-action tile-action--focus" do %>
 						<div class="tile-text">
@@ -20,8 +20,8 @@
 							<div class="tile-subtitle"><%= machine.nice_location %></div>
 						</div>
 					<% end %>
-					<%= link_to edit_machine_path(machine), class: "tile-action" do %>
-						<svg class="tile-icon tile-icon--b"><use xlink:href="#icon-edit"></use></svg>
+					<%= link_to edit_machine_path(machine), class: "icon tile-icon--b" do %>
+						<svg><use xlink:href="#icon-edit"></use></svg>
 					<% end %>
 				</div>
 	<% end %>
@@ -32,8 +32,8 @@
 				<p class="subheader subheader--padded">All Machines (<%= @machines.count %>)</p>
 	<% for machine in @machines %>
 				<div class="tile">
-					<%= link_to machine, class: "tile-action" do %>
-						<svg class="tile-icon tile-icon--a"><use xlink:href="#icon-view"></use></svg>
+					<%= link_to machine, class: "icon tile-icon--a" do %>
+						<svg><use xlink:href="#icon-view"></use></svg>
 					<% end %>
 					<%= link_to machine, class: "tile-action tile-action--focus" do %>
 						<div class="tile-text">
@@ -47,8 +47,8 @@
 							</div>
 						</div>
 					<% end %>
-					<%= link_to edit_machine_path(machine), class: "tile-action" do %>
-						<svg class="tile-icon tile-icon--b"><use xlink:href="#icon-edit"></use></svg>
+					<%= link_to edit_machine_path(machine), class: "icon tile-icon--b" do %>
+						<svg><use xlink:href="#icon-edit"></use></svg>
 					<% end %>
 				</div>
 	<% end %>
