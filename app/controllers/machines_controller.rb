@@ -19,6 +19,7 @@ class MachinesController < ApplicationController
 
 	def new
 		@machine = Machine.new
+		@machine.info ||= {}
 	end
 
 	def create
@@ -33,6 +34,7 @@ class MachinesController < ApplicationController
 
 	def edit
 		@machine = Machine.find(params[:id])
+		@machine.info ||= {}
 	end
 
 	def update
