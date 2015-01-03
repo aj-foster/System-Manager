@@ -1,0 +1,2 @@
+class ExtendedAttributesController < ApplicationController
+end

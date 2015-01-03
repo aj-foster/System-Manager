@@ -13,7 +13,11 @@ Rails.application.routes.draw do
 		resources :alerts
 	end
 
-	resources :machines, concerns: :alertable
+	resources :machines, concerns: :alertable do
+		collection do
+			get :manage_ex_attrs
+		end
+	end
 
 	resources :disks, concerns: :alertable do
 		member do
@@ -22,5 +26,6 @@ Rails.application.routes.draw do
 	end
 
 	resources :alerts
+	resources :extended_attributes
 
 end

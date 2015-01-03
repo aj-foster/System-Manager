@@ -47,6 +47,10 @@ class MachinesController < ApplicationController
 		end
 	end
 
+	def manage_ex_attrs
+		@ex_attrs = ExtendedAttribute.where(model: :machine).order(name: :asc)
+	end
+
 	def destroy
 		@machine = Machine.find(params[:id])
 

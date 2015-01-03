@@ -1,0 +1,2 @@
+module ExtendedAttributesHelper
+end
