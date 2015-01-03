@@ -1,26 +1,54 @@
-				<%= form_for @machine do |f| %>
+				<%= form_for @machine, html: {novalidate: true} do |f| %>
 <% if @machine.errors.any? %>
 	<% @machine.errors.full_messages.each do |msg| %>
 					<p><%= msg %></p>
 	<% end %>
 <% end %>
-					<fieldset>
-						<p class="textField">
-							<%= f.label :name, "Machine Name" %>
-							<span class="required">*</span><br>
-							<%= f.text_field :name, placeholder: "Rob's Desktop", required: true, autofocus: true %>
-						</p>
-						<p class="textField">
-							<%= f.label :location, "Physical Location" %><br>
-							<%= f.text_field :location, placeholder: "PSB 354" %>
-						</p>
-						<p class="textField">
-							<%= f.label :ip_address, "IP Address" %><br>
-							<%= f.text_field :ip_address, placeholder: "10.0.0.1" %>
-						</p>
+					<div class="fieldSet">
 
-						<p>
-							<%= f.submit "Register Machine" %>
-						</p>
-					</fieldset>
+						<div class="textField <%= "has-error" if @machine.errors.include? :name %>">
+							<%= f.label :name, "Machine Name", class: "is-required" %>
+							<%= f.text_field :name, placeholder: "Rob's Desktop", required: true, autofocus: true %>
+<% if @machine.errors.include? :name %>
+							<div class="textField-error"><%= @machine.errors.full_messages_for(:name).first %></div>
+<% end %>
+						</div>
+
+						<div class="textField <%= "has-error" if @machine.errors.include? :location %>">
+							<%= f.label :location, "Physical Location" %>
+							<%= f.text_field :location, placeholder: "PSB 354" %>
+<% if @machine.errors.include? :location %>
+							<div class="textField-error"><%= @machine.errors.full_messages_for(:location).first %></div>
+<% end %>
+						</div>
+
+						<div class="textField <%= "has-error" if @machine.errors.include? :ip_address %>">
+							<%= f.label :ip_address, "IP Address" %>
+							<%= f.text_field :ip_address, placeholder: "10.0.0.1" %>
+<% if @machine.errors.include? :ip_address %>
+							<div class="textField-error"><%= @machine.errors.full_messages_for(:ip_address).first %></div>
+<% end %>
+						</div>
+					</div>
+
+					<div class="fieldset">
+<%= f.fields_for :info do |i| %>
+	<% for key in @machine.info.keys.sort %>
+						<div class="textField">
+							<%= i.label key, key %>
+							<%= i.text_field key, value: @machine.info[key], placeholder: "Leave blank to remove" %>
+						</div>
+	<% end %>
+<% end %>
+					</div>
+
+					<div class="divider"></div>
+					<div>
+						<%= f.submit "Done", class: "button button--first", title: "Submit" %>
+<% if @machine.new_record? %>
+						<%= link_to "Cancel", machines_path, class: "button button--danger", title: "Discard Creation" %>
+<% else %>
+						<%= link_to "Cancel", @machine, class: "button button--danger", title: "Discard Changes" %>
+<% end %>
+					</div>
 				<% end %>

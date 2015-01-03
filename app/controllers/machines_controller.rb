@@ -59,6 +59,7 @@ class MachinesController < ApplicationController
 	private
 
 		def machine_params
+			params[:machine][:info].delete_if { |k,v| v.blank? }
 			params.require(:machine).permit!
 		end
 end
