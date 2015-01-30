@@ -27,5 +27,6 @@ Rails.application.routes.draw do
 
 	resources :alerts
 	resources :extended_attributes
+	resources :disk_statuses, only: :create
 
 end
