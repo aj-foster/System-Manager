@@ -4,10 +4,16 @@ class DiskStatusesController < ApplicationController
 
 	def create
 		@disk = Disk.where(serial_number: status_params[:serial_number]).first
-		status_params.delete :serial_number
+		
 
-		@status = DiskStatus.new(status_params)
-		@status.disk = @disk
+		if @disk.present?
+			status_params.delete :serial_number
+			@status = DiskStatus.new(status_params)
+			@status.disk = @disk
+		else
+			Alert.touch(name: "Missing Drive", message: "A system is reporting status information for an unknown disk, with serial number #{status_params[:serial_number]}.")
+			return render text: "Unknown Drive", status: 422
+		end
 
 		if @status.save
 			render text: "Success"
