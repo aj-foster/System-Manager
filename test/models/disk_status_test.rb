@@ -10,7 +10,7 @@ class DiskStatusTest < ActiveSupport::TestCase
 	end
 
 
-	# Alert creation tests
+	# Tests for DiskStatus#evaluate_status
 
 	def test_pending_alert_creation
 
@@ -46,5 +46,19 @@ class DiskStatusTest < ActiveSupport::TestCase
 				uncorrectable: 1
 			).destroy
 		end
+	end
+
+
+	# Test for DiskStatus#setup_disk_status
+
+	def test_disk_status_attribute_setup
+		disk_status = DiskStatus.create(disk: disks(:disk_canonical))
+
+		assert_not disk_status.lifetime.nil?, "Saved disk status with nil lifetime."
+		assert_not disk_status.pending.nil?, "Saved disk status with nil pending sectors."
+		assert_not disk_status.reallocations.nil?, "Saved disk status with nil reallocated sectors."
+		assert_not disk_status.ssd_wear.nil?, "Saved disk status with nil SSD wear."
+		assert_not disk_status.uncorrectable.nil?, "Saved disk status with nil uncorrectable sectors."
+
 	end
 end
