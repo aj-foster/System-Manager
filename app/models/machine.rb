@@ -1,15 +1,20 @@
 class Machine < ActiveRecord::Base
 
 	# Relationships
-
+	#
 	has_many :disks
-	has_many :alerts, as: :alertable
+	has_many :alerts, as: :alertable, dependent: :destroy
 
-	# Properties
+
+	# Validation
+	#
 	validates :name, presence: true
 
-	# Methods
 
+	# Returns a human-readable string representing the location of the machine,
+	# both physically and electronically, depending on the information that is
+	# available.
+	#
 	def nice_location
 		if location.blank? && ip_address.blank?
 			"Location Unknown"
@@ -21,5 +26,4 @@ class Machine < ActiveRecord::Base
 			"#{location} &mdash; #{ip_address}".html_safe
 		end
 	end
-	
 end
