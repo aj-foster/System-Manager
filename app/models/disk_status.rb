@@ -19,11 +19,18 @@ class DiskStatus < ActiveRecord::Base
 			@statuses = DiskStatus.where(disk: @disk).order(created_at: :desc)
 
 			return true unless @statuses.any?
-
 			@current = @statuses.first
-			@previous = @statuses.second
 
-			return true if (@current.nil? || @previous.nil?)
+			if @current.pending > 0
+				Alert.touch(name: "Pending Reallocations", \
+							message: "The disk #{@disk.name} has sectors "\
+									 "that are waiting to be reallocated. "\
+									 "This may indicate an upcoming failure.", \
+							alertable: @disk)
+			end
+
+			@previous = @statuses.second
+			return true if @previous.nil?
 
 			if @current.reallocations > @previous.reallocations
 				Alert.touch(name: "Reallocations", \
@@ -31,14 +38,6 @@ class DiskStatus < ActiveRecord::Base
 									 "increase in the number of reallocated "\
 									 "sectors. This may indicate an upcoming "\
 									 "failure.", \
-							alertable: @disk)
-			end
-
-			if @current.pending > 0
-				Alert.touch(name: "Pending Reallocations", \
-							message: "The disk #{@disk.name} has sectors "\
-									 "that are waiting to be reallocated. "\
-									 "This may indicate an upcoming failure.", \
 							alertable: @disk)
 			end
 

@@ -26,3 +26,11 @@ disk_status_no_disk:
   pending: 1
   uncorrectable: 1
   healthy: false
+
+disk_status_canonical:
+  disk: disk_canonical
+  healthy: true
+  lifetime: 0
+  pending: 0
+  reallocations: 0
+  uncorrectable: 0

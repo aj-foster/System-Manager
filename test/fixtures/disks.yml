@@ -87,3 +87,16 @@ disk_nonunique_name_2:
   usage: Some usage
   warranty_exp: 2020-01-01
   notes: Some notes
+
+# Disk Status Tests
+
+disk_canonical:
+  name: aa00aa
+  manufacturer: AAAA
+  serial_number: canonical_serial_number
+  part_number: canonical_part_number
+  capacity: 0
+  format: HDD
+  usage: /
+  warranty_exp: 2020-01-01
+  notes: Canonical notes
