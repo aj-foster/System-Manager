@@ -18,7 +18,7 @@ class DiskStatus < ActiveRecord::Base
 	#
 
 	# Give each status safe default values for comparison purposes.
-	before_save :setup_disk_status
+	after_initialize :setup_disk_status
 
 	# Evaluate each new disk status during creation for alertable data.
 	after_create :evaluate_status

@@ -22,7 +22,7 @@ class Alert < ActiveRecord::Base
 	#
 
 	# Give alerts safe default attributes.
-	before_save :setup_alert
+	after_initialize :setup_alert
 
 
 	# Allows an alert to be created if it doesn't exist or given +1
