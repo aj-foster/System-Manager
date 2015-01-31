@@ -1,10 +1,21 @@
 class DiskStatus < ActiveRecord::Base
 
+	# Relationships
+	#
+
 	# Associate each status with its disk.
 	belongs_to :disk
 
+
+	# Validation
+	#
+
 	# Require a disk to be associated with each status.
 	validates :disk, presence: true
+
+
+	# Callbacks
+	#
 
 	# Give each status safe default values for comparison purposes.
 	before_save :setup_disk_status
@@ -19,9 +30,9 @@ class DiskStatus < ActiveRecord::Base
 		# alert.
 		#
 		# Includes the following cases:
-		#   * There are sectors pending reallocation
-		#   * The number of reallocated sectors has increased
-		#   * The number of uncorrectable errors has increased
+		# * There are sectors pending reallocation
+		# * The number of reallocated sectors has increased
+		# * The number of uncorrectable errors has increased
 		#
 		def evaluate_status
 
@@ -39,10 +50,10 @@ class DiskStatus < ActiveRecord::Base
 
 			# If there are sectors waiting to be reallocated, create an alert.
 			if @current.pending > 0
-				Alert.touch(name: "Pending Reallocations", \
-							message: "The disk #{@disk.name} has sectors "\
-									 "that are waiting to be reallocated. "\
-									 "This may indicate an upcoming failure.", \
+				Alert.touch(name: "Pending Reallocations",
+							message: "The disk #{@disk.name} has sectors " \
+									 "that are waiting to be reallocated. " \
+									 "This may indicate an upcoming failure.",
 							alertable: @disk)
 			end
 
@@ -56,21 +67,21 @@ class DiskStatus < ActiveRecord::Base
 			# If the number of reallocated sectors has increased, create an
 			# alert.
 			if @current.reallocations > @previous.reallocations
-				Alert.touch(name: "Reallocations", \
-							message: "The disk #{@disk.name} has seen an "\
-									 "increase in the number of reallocated "\
-									 "sectors. This may indicate an upcoming "\
-									 "failure.", \
+				Alert.touch(name: "Reallocations",
+							message: "The disk #{@disk.name} has seen an " \
+									 "increase in the number of reallocated " \
+									 "sectors. This may indicate an upcoming " \
+									 "failure.",
 							alertable: @disk)
 			end
 
 			# If the number of uncorrectable errors has increased, create an
 			# alert.
 			if @current.uncorrectable > @previous.uncorrectable
-				Alert.touch(name: "Uncorrectable Sectors", \
-							message: "The disk #{@disk.name} has recently "\
-									 "failed to recover data from a sector. "\
-									 "This may indicate data loss.", \
+				Alert.touch(name: "Uncorrectable Sectors",
+							message: "The disk #{@disk.name} has recently " \
+									 "failed to recover data from a sector. " \
+									 "This may indicate data loss.",
 							alertable: @disk)
 			end
 		end
@@ -78,6 +89,7 @@ class DiskStatus < ActiveRecord::Base
 
 		# Gives a disk status safe default values to protect against nil
 		# comparisons.
+		#
 		def setup_disk_status
 			self.healthy ||= true
 			self.lifetime ||= 0
