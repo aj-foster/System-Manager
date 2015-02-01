@@ -16,5 +16,12 @@
 
 				<div class="divider"></div>
 				<p class="subheader">Add Property</p>
-				<% # Todo... %>
+				<%= form_for ExtendedAttribute.new do |f| %>
+					<div class="textField">
+						<%= f.label :name, "Name" %>
+						<%= f.text_field :name, placeholder: "New Attribute" %>
+					</div>
+					<%= f.hidden_field :model, value: "machine" %>
+					<%= f.submit "Create", class: "button button--first", title: "Submit" %>
+				<% end %>
 			</article>
