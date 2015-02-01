@@ -1,6 +1,16 @@
+.fieldSet
+	display: flex
+	flex-flow: row wrap
+	margin-bottom: 1em
+
+.fieldSet-column
+	border-bottom: 1px solid $c-text-divider
+	flex: 1 0 auto
+
 .textField
 	padding: 1em 1em 0
 	margin-bottom: 1em
+	min-width: em(250px)
 
 .textField > label
 	color: $c-text-secondary

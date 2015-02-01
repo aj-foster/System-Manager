@@ -5,44 +5,47 @@
 	<% end %>
 <% end %>
 					<div class="fieldSet">
+						<div class="fieldSet-column">
+							<p class="subheader">Basic Information</p>
 
-						<div class="textField <%= "has-error" if @machine.errors.include? :name %>">
-							<%= f.label :name, "Machine Name", class: "is-required" %>
-							<%= f.text_field :name, placeholder: "Rob's Desktop", required: true, autofocus: true %>
+							<div class="textField <%= "has-error" if @machine.errors.include? :name %>">
+								<%= f.label :name, "Machine Name", class: "is-required" %>
+								<%= f.text_field :name, placeholder: "Rob's Desktop", required: true, autofocus: true %>
 <% if @machine.errors.include? :name %>
-							<div class="textField-error"><%= @machine.errors.full_messages_for(:name).first %></div>
+								<div class="textField-error"><%= @machine.errors.full_messages_for(:name).first %></div>
 <% end %>
-						</div>
+							</div>
 
-						<div class="textField <%= "has-error" if @machine.errors.include? :location %>">
-							<%= f.label :location, "Physical Location" %>
-							<%= f.text_field :location, placeholder: "PSB 354" %>
+							<div class="textField <%= "has-error" if @machine.errors.include? :location %>">
+								<%= f.label :location, "Physical Location" %>
+								<%= f.text_field :location, placeholder: "PSB 354" %>
 <% if @machine.errors.include? :location %>
-							<div class="textField-error"><%= @machine.errors.full_messages_for(:location).first %></div>
+								<div class="textField-error"><%= @machine.errors.full_messages_for(:location).first %></div>
 <% end %>
-						</div>
+							</div>
 
-						<div class="textField <%= "has-error" if @machine.errors.include? :ip_address %>">
-							<%= f.label :ip_address, "IP Address" %>
-							<%= f.text_field :ip_address, placeholder: "10.0.0.1" %>
+							<div class="textField <%= "has-error" if @machine.errors.include? :ip_address %>">
+								<%= f.label :ip_address, "IP Address" %>
+								<%= f.text_field :ip_address, placeholder: "10.0.0.1" %>
 <% if @machine.errors.include? :ip_address %>
-							<div class="textField-error"><%= @machine.errors.full_messages_for(:ip_address).first %></div>
+								<div class="textField-error"><%= @machine.errors.full_messages_for(:ip_address).first %></div>
 <% end %>
+							</div>
 						</div>
-					</div>
 
-					<div class="fieldset">
+						<div class="fieldSet-column">
+							<p class="subheader">Extended Attributes</p>
 <%= f.fields_for :info do |i| %>
-	<% for key in @machine.info.keys.sort %>
-						<div class="textField">
-							<%= i.label key, key %>
-							<%= i.text_field key, value: @machine.info[key], placeholder: "Leave blank to remove" %>
-						</div>
+	<% for ex_attr in @ex_attrs %>
+							<div class="textField">
+								<%= i.label ex_attr.name, ex_attr.name %>
+								<%= i.text_field ex_attr.name, value: @machine.info[ex_attr.name], placeholder: "Optional Attribute" %>
+							</div>
 	<% end %>
 <% end %>
+						</div>
 					</div>
 
-					<div class="divider"></div>
 					<div>
 						<%= f.submit "Done", class: "button button--first", title: "Submit" %>
 <% if @machine.new_record? %>

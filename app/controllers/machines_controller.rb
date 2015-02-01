@@ -19,6 +19,7 @@ class MachinesController < ApplicationController
 
 	def new
 		@machine = Machine.new
+		@ex_attrs = ExtendedAttribute.where(model: :machine).order(name: :asc)
 		@machine.info ||= {}
 	end
 
@@ -34,6 +35,7 @@ class MachinesController < ApplicationController
 
 	def edit
 		@machine = Machine.find(params[:id])
+		@ex_attrs = ExtendedAttribute.where(model: :machine).order(name: :asc)
 		@machine.info ||= {}
 	end
 
