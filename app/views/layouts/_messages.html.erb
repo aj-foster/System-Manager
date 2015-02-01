@@ -1,0 +1,9 @@
+<% if flash.any? %>
+		<section class="messages">
+	<% flash.each do |type, message| %>
+			<div class="message message--<%= type %>">
+				<%= message %>
+			</div>
+	<% end %>
+		</section>
+<% end %>

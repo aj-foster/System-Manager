@@ -1,0 +1,31 @@
+.message
+	bottom: -3em
+	color: $c-text-invert-primary
+	max-width: $b-maxWidth-xs
+	min-width: em(288px)
+	padding: 1em 1.5em
+	position: fixed
+	opacity: 0
+	width: 100%
+	z-index: 4
+
+	+respond-to($b-maxWidth-xs)
+		border-radius: 2px
+		margin: 0 1em
+		max-width: $b-maxWidth-xs
+		width: auto
+
+	transition: opacity 0.2s, bottom 0.2s
+
+.message--alert
+	background-color: $c-danger-bg
+
+.message--notice
+	background-color: $c-message-bg
+
+.message.is-visible
+	bottom: 0
+	opacity: 1
+	
+	+respond-to($b-maxWidth-xs)
+		bottom: 1em
