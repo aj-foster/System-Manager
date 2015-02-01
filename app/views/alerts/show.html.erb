@@ -15,8 +15,14 @@
 <% if @alert.alertable.present? %>
 				<div class="divider"></div>
 				<p class="subheader">Related Property</p>
-				<p><%= @alert.alertable.name %> (<%= @alert.alertable_type %>)</p>
+				<%= link_to @alert.alertable do %>
+					<p><%= @alert.alertable.name %> (<%= @alert.alertable_type %>)</p>
+				<% end %>
 <% end %>
+
+				<div class="divider"></div>
+				<p class="subheader">Notes</p>
+				<p>This alert has been recorded <%= pluralize(@alert.multiplicity, "time") %>. It was last reported <%= @alert.updated_at.strftime("%l:%M%P on %-m/%-d/%y") %>.</p>
 
 				<div class="divider"></div>
 				<div>
