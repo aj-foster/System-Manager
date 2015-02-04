@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 		if @user.update(user_params)
 			redirect_to @user, notice: "Updated information about #{@user.name}."
 		else
-			redirect_to @user
+			redirect_to @user, error: "Error: Could not update user."
 		end
 	end
 
@@ -36,6 +36,17 @@ class UsersController < ApplicationController
 			redirect_to users_path, notice: "#{@user.name} has been removed."
 		else
 			redirect_to @user, alert: "Error: Could not remove #{@user.name}."
+		end
+	end
+
+	def approve
+		@user = User.find(params[:id])
+		@user.role = :approved
+
+		if @user.save
+			redirect_to users_path, notice: "#{@user.name} has been approved."
+		else
+			redirect_to @user, alert: "Error: Could not approve user."
 		end
 	end
 

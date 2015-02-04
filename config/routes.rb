@@ -25,6 +25,12 @@ Rails.application.routes.draw do
 		end
 	end
 
+	resources :users, only: [:index, :show, :update] do
+		member do
+			put :approve
+		end
+	end
+	
 	resources :alerts
 	resources :extended_attributes
 	resources :disk_statuses, only: :create
