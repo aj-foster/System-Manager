@@ -1,0 +1,48 @@
+<% page_title "Users" %>
+			<article class="focus focus--top">
+<% if !@unapproved.blank? %>
+				<p class="subheader subheader--padded">Unapproved Users (<%= @unapproved.count %>)</p>
+	<% for user in @unapproved %>
+				<div class="tile">
+					<%= link_to user, class: "icon tile-icon--a", title: "View User" do %>
+						<svg><use xlink:href="#icon-view"></use></svg>
+					<% end %>
+					<%= link_to user, class: "tile-action tile-action--focus", title: "View User" do %>
+						<div class="tile-text">
+							<div class="tile-title"><%= user.name %></div>
+							<div class="tile-subtitle">
+								Account created
+								<%= user.created_at.strftime("%l:%M%P on %-m/%-d/%y") %>
+							</div>
+						</div>
+					<% end %>
+					<%= link_to approve_user_path(user), method: :put, class: "icon tile-icon--b", title: "Approve User" do %>
+						<svg><use xlink:href="#icon-check"></use></svg>
+					<% end %>
+				</div>
+	<% end %>
+				<div class="divider"></div>
+<% end %>
+
+<% if !@users.blank? %>
+				<p class="subheader subheader--padded">All Users (<%= @users.count %>)</p>
+	<% for user in @users %>
+				<div class="tile">
+					<%= link_to user, class: "icon tile-icon--a", title: "View User" do %>
+						<svg><use xlink:href="#icon-view"></use></svg>
+					<% end %>
+					<%= link_to user, class: "tile-action tile-action--focus", title: "View user" do %>
+						<div class="tile-text">
+							<div class="tile-title"><%= user.name %></div>
+							<div class="tile-subtitle">
+								User since
+								<%= user.created_at.strftime("%-m/%-d/%y") %>
+							</div>
+						</div>
+					<% end %>
+				</div>
+	<% end %>
+<% else %>
+				<p class="subheader subheader--padded">There are no machines to display.</p>
+<% end %>
+			</article>

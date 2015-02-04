@@ -24,6 +24,11 @@
 				<li><%= link_to "View Disks", disks_path, class: "lnb", title: "Disk Index" %></li>
 				<li><%= link_to "Add Disk", new_disk_path, class: "lnb", title: "Add Disk" %></li>
 			</ul>
+
+			<p class="twb mbs">Users</p>
+			<ul class="lsn">
+				<li><%= link_to "View Users", users_path, class: "lnb", title: "user Index" %></li>
+			</ul>
 <% else %>
 			<p><em>System Manager</em> is a web application for monitoring and managing computers and hard drives. If you've stumbled upon this by accident, sorry! There isn't much to see here. If you arrived here purposefully, then feel free to <%= link_to "login", new_user_session_path, title: "Log in" %>.</p>
 <% end %>
