@@ -1,16 +1,21 @@
-<h2>Forgot your password?</h2>
+<% page_title "Forgot Your Password?" %>
+			<article class="focus focus--top">
+				<%= form_for resource, as: resource_name, url: password_path(resource_name), html: {novalidate: true, method: :post} do |f| %>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+					<p>If you've forgotten your password, input your e-mail address below. You'll receive an e-mail with instructions on how to reset it.</p>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
+					<div class="textField <%= "has-error" if resource.errors.include? :email %>">
+						<%= f.label :email, "Your Email", class: "is-required" %>
+						<%= f.email_field :email, placeholder: "rob@example.com", required: true, autofocus: true %>
+<% if resource.errors.include? :email %>
+						<div class="textField-error"><%= resource.errors.full_messages_for(:email).first %></div>
 <% end %>
+					</div>
 
-<%= render "devise/shared/links" %>
+					<div class="actions">
+						<%= f.submit "Send Email", class: "button button--first button--danger", title: "Send password reset instructions" %>
+						<%= link_to "Log In", new_session_path(resource_name), class: "button", title: "Log In" %>
+						<%= link_to "Sign Up", new_registration_path(resource_name), class: "button", title: "Sign Up" %>
+					</div>
+				<% end %>
+			</article>

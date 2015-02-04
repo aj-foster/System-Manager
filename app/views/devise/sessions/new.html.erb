@@ -1,28 +1,21 @@
 <% page_title "Log In" %>
 			<article class="focus focus--top">
+				<%= form_for resource, as: resource_name, url: session_path(resource_name), html: {novalidate: true} do |f| %>
+					<div class="textField">
+						<%= f.label :email, "Your Email", class: "is-required" %>
+						<%= f.email_field :email, placeholder: "you@example.com", required: true, autofocus: true %>
+					</div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-	<div class="field">
-		<%= f.label :email, "Your Email" %><br />
-		<%= f.email_field :email, autofocus: true %>
-	</div>
+					<div class="textField">
+						<%= f.label :password, "Your Password", class: "is-required" %>
+						<%= f.password_field :password, required: true, autocomplete: "off" %>
+					</div>
 
-	<div class="field">
-		<%= f.label :password %><br />
-		<%= f.password_field :password, autocomplete: "off" %>
-	</div>
-
-	<% if devise_mapping.rememberable? -%>
-		<div class="field">
-			<%= f.check_box :remember_me %>
-			<%= f.label :remember_me %>
-		</div>
-	<% end -%>
-
-	<div class="actions">
-		<%= f.submit "Log in" %>
-	</div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+					<div class="divider"></div>
+					<div>
+						<%= f.submit "Log In", class: "button button--first button--danger", title: "Log In" %>
+						<%= link_to "Sign Up", new_registration_path(resource_name), class: "button", title: "Sign Up" %>
+						<%= link_to "I Forgot", new_password_path(resource_name), class: "button", title: "Forgot Password" %>
+					</div>
+				<% end %>
 			</article>
