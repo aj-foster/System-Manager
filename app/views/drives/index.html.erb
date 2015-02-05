@@ -1,0 +1,62 @@
+<% page_title "Drives" %>
+			<article class="focus focus--top">
+				<%= link_to new_drive_path, class: "icon icon--float", title: "Add Drive" do %>
+					<svg><use xlink:href="#icon-plus"></use></svg>
+				<% end %>
+<% if !@drives_with_alerts.blank? %>
+				<p class="subheader subheader--padded">Drives with Alerts (<%= @drives_with_alerts.count %>)</p>
+	<% for drive in @drives_with_alerts %>
+				<div class="tile">
+					<%= link_to drive, class: "icon tile-icon--a", title: "View Drive" do %>
+						<svg><use xlink:href="#icon-view"></use></svg>
+					<% end %>
+					<%= link_to drive, class: "tile-action tile-action--focus", title: "View Drive" do %>
+						<div class="tile-text">
+							<div class="tile-title">
+								<%= drive.name %>
+								<%= "(" + pluralize(drive.alerts.count, 'Alert') + ")" if drive.alerts.any? %>
+							</div>
+							<div class="tile-subtitle">
+								<%= drive.format %> &mdash;
+								<%= drive.nice_capacity %>
+								<%= "&mdash; ".html_safe + drive.location unless drive.location.blank? %>
+							</div>
+						</div>
+					<% end %>
+					<%= link_to edit_drive_path(drive), class: "icon tile-icon--b", title: "Edit Drive" do %>
+						<svg><use xlink:href="#icon-edit"></use></svg>
+					<% end %>
+				</div>
+	<% end %>
+				<div class="divider"></div>
+<% end %>
+
+<% if !@drives.blank? %>
+				<p class="subheader subheader--padded">All Drives (<%= @drives.count %>)</p>
+	<% for drive in @drives %>
+				<div class="tile">
+					<%= link_to drive, class: "icon tile-icon--a", title: "View Drive" do %>
+						<svg><use xlink:href="#icon-view"></use></svg>
+					<% end %>
+					<%= link_to drive, class: "tile-action tile-action--focus", title: "View Drive" do %>
+						<div class="tile-text">
+							<div class="tile-title">
+								<%= drive.name %>
+								<%= "(" + pluralize(drive.alerts.count, 'Alert') + ")" if drive.alerts.any? %>
+							</div>
+							<div class="tile-subtitle">
+								<%= drive.format %> &mdash;
+								<%= drive.nice_capacity %>
+								<%= "&mdash; ".html_safe + drive.location unless drive.location.blank? %>
+							</div>
+						</div>
+					<% end %>
+					<%= link_to edit_drive_path(drive), class: "icon tile-icon--b", title: "Edit Drive" do %>
+						<svg><use xlink:href="#icon-edit"></use></svg>
+					<% end %>
+				</div>
+	<% end %>
+<% else %>
+				<p class="subheader subheader--padded">There are no drives to display.</p>
+<% end %>
+			</article>

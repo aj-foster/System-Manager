@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class DiskStatusesControllerTest < ActionController::TestCase
+class DrivesControllerTest < ActionController::TestCase
   # test "the truth" do
   #   assert true
   # end

@@ -1,5 +1,5 @@
-class ChangeDiskTypeToFormat < ActiveRecord::Migration
+class ChangeDriveTypeToFormat < ActiveRecord::Migration
 	def change
-		rename_column :disks, :type, :format
+		rename_column :drives, :type, :format
 	end
 end

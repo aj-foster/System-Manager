@@ -16,7 +16,7 @@ class AlertTest < ActiveSupport::TestCase
 			Alert.touch(
 				name: "Canonical Name",
 				message: "Alert Message",
-				alertable: disks(:disk_canonical)
+				alertable: drives(:drive_canonical)
 			)
 		end
 	end
@@ -26,7 +26,7 @@ class AlertTest < ActiveSupport::TestCase
 			Alert.touch(
 				name: "New Alert",
 				message: "Foreign message",
-				alertable: disks(:disk_canonical)
+				alertable: drives(:drive_canonical)
 			)
 		end
 	end

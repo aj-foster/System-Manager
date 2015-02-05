@@ -1,7 +1,7 @@
-class CreateDiskStatuses < ActiveRecord::Migration
+class CreateDriveStatuses < ActiveRecord::Migration
   def change
-    create_table :disk_statuses do |t|
-      t.references :disk, index: true
+    create_table :drive_statuses do |t|
+      t.references :drive, index: true
       t.integer :lifetime
       t.integer :reallocations
       t.integer :pending

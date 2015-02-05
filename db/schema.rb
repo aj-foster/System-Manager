@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(version: 20150205055958) do
 
   add_index "alerts", ["alertable_id", "alertable_type"], name: "index_alerts_on_alertable_id_and_alertable_type", using: :btree
 
-  create_table "disk_statuses", force: true do |t|
-    t.integer  "disk_id"
+  create_table "drive_statuses", force: true do |t|
+    t.integer  "drive_id"
     t.integer  "lifetime",      default: 0
     t.integer  "reallocations", default: 0
     t.integer  "pending",       default: 0
@@ -41,9 +41,9 @@ ActiveRecord::Schema.define(version: 20150205055958) do
     t.datetime "updated_at"
   end
 
-  add_index "disk_statuses", ["disk_id"], name: "index_disk_statuses_on_disk_id", using: :btree
+  add_index "drive_statuses", ["drive_id"], name: "index_drive_statuses_on_drive_id", using: :btree
 
-  create_table "disks", force: true do |t|
+  create_table "drives", force: true do |t|
     t.integer  "machine_id"
     t.string   "name",          default: ""
     t.string   "manufacturer",  default: ""
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20150205055958) do
     t.datetime "updated_at"
   end
 
-  add_index "disks", ["machine_id"], name: "index_disks_on_machine_id", using: :btree
+  add_index "drives", ["machine_id"], name: "index_drives_on_machine_id", using: :btree
 
   create_table "extended_attributes", force: true do |t|
     t.string   "model",      default: ""

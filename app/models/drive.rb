@@ -1,14 +1,14 @@
-class Disk < ActiveRecord::Base
+class Drive < ActiveRecord::Base
 
 	# Relationships
 	#
 
-	# Optionally associate a disk with the machine in which it resides.
+	# Optionally associate a drive with the machine in which it resides.
 	belongs_to :machine
 
-	# Disks have many alerts and statuses associated with them.
+	# Drives have many alerts and statuses associated with them.
 	has_many :alerts, as: :alertable, dependent: :destroy
-	has_many :disk_statuses, dependent: :destroy
+	has_many :drive_statuses, dependent: :destroy
 
 
 	# Validations
@@ -17,7 +17,7 @@ class Disk < ActiveRecord::Base
 	validates :name, uniqueness: { case_sensitive: false }
 
 
-	# Returns a human-friendly string with the disk's location and usage
+	# Returns a human-friendly string with the drives's location and usage
 	# depending on the information that is available.
 	#
 	def location
@@ -31,7 +31,7 @@ class Disk < ActiveRecord::Base
 	end
 
 
-	# Returns a human-friendly string representing the disk's size.
+	# Returns a human-friendly string representing the drive's size.
 	#
 	def nice_capacity
 		if capacity.blank?

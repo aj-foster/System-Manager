@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  disk_id: 
+  drive_id: 
   lifetime: 1
   reallocations: 1
   pending: 1
@@ -10,7 +10,7 @@ one:
   ssd_wear: 1
 
 two:
-  disk_id: 
+  drive_id: 
   lifetime: 1
   reallocations: 1
   pending: 1
@@ -20,15 +20,15 @@ two:
 
 # Model Tests
 
-disk_status_no_disk:
+drive_status_no_drive:
   lifetime: 1
   reallocations: 1
   pending: 1
   uncorrectable: 1
   healthy: false
 
-disk_status_canonical:
-  disk: disk_canonical
+drive_status_canonical:
+  drive: drive_canonical
   healthy: true
   lifetime: 0
   pending: 0

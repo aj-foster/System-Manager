@@ -1,17 +1,17 @@
-class DiskStatusesController < ApplicationController
+class DriveStatusesController < ApplicationController
 
 	before_action :authenticate
 
 	def create
-		@disk = Disk.where(serial_number: status_params[:serial_number]).first
+		@drive = Drive.where(serial_number: status_params[:serial_number]).first
 		
 
-		if @disk.present?
+		if @drive.present?
 			status_params.delete :serial_number
-			@status = DiskStatus.new(status_params)
-			@status.disk = @disk
+			@status = DriveStatus.new(status_params)
+			@status.drive = @drive
 		else
-			Alert.touch(name: "Missing Drive", message: "A system is reporting status information for an unknown disk, with serial number #{status_params[:serial_number]}.")
+			Alert.touch(name: "Missing Drive", message: "A system is reporting status information for an unknown drive, with serial number #{status_params[:serial_number]}.")
 			return render text: "Unknown Drive", status: 422
 		end
 
@@ -32,6 +32,6 @@ class DiskStatusesController < ApplicationController
 		end
 
 		def status_params
-			params.require(:disk_status).permit!
+			params.require(:drive_status).permit!
 		end
 end

@@ -5,21 +5,21 @@ class SetDefaults < ActiveRecord::Migration
   	change_column :machines, :ip_address, :string, default: ""
   	change_column :machines, :info, :hstore, default: {}
 
-  	change_column :disks, :name, :string, default: ""
-  	change_column :disks, :manufacturer, :string, default: ""
-  	change_column :disks, :serial_number, :string, default: ""
-  	change_column :disks, :part_number, :string, default: ""
-  	change_column :disks, :capacity, :integer, default: 0
-  	change_column :disks, :format, :string, default: "HDD"
-  	change_column :disks, :usage, :string, default: ""
-  	change_column :disks, :notes, :text, default: ""
+  	change_column :drives, :name, :string, default: ""
+  	change_column :drives, :manufacturer, :string, default: ""
+  	change_column :drives, :serial_number, :string, default: ""
+  	change_column :drives, :part_number, :string, default: ""
+  	change_column :drives, :capacity, :integer, default: 0
+  	change_column :drives, :format, :string, default: "HDD"
+  	change_column :drives, :usage, :string, default: ""
+  	change_column :drives, :notes, :text, default: ""
 
-  	change_column :disk_statuses, :lifetime, :integer, default: 0
-  	change_column :disk_statuses, :reallocations, :integer, default: 0
-  	change_column :disk_statuses, :pending, :integer, default: 0
-  	change_column :disk_statuses, :uncorrectable, :integer, default: 0
-  	change_column :disk_statuses, :healthy, :boolean, default: true
-  	change_column :disk_statuses, :ssd_wear, :integer, default: 0
+  	change_column :drive_statuses, :lifetime, :integer, default: 0
+  	change_column :drive_statuses, :reallocations, :integer, default: 0
+  	change_column :drive_statuses, :pending, :integer, default: 0
+  	change_column :drive_statuses, :uncorrectable, :integer, default: 0
+  	change_column :drive_statuses, :healthy, :boolean, default: true
+  	change_column :drive_statuses, :ssd_wear, :integer, default: 0
 
   	change_column :alerts, :name, :string, default: ""
   	change_column :alerts, :message, :string, default: ""

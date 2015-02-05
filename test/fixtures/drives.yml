@@ -26,7 +26,7 @@ two:
 
 # Model Tests
 
-disk_no_name:
+drive_no_name:
   manufacturer: Some manufacturer
   serial_number: Some serial number
   part_number: Some part number
@@ -36,7 +36,7 @@ disk_no_name:
   warranty_exp: 2020-01-01
   notes: Some notes
 
-disk_no_serial_number:
+drive_no_serial_number:
   name: Some name
   manufacturer: Some manufacturer
   part_number: Some part number
@@ -46,7 +46,7 @@ disk_no_serial_number:
   warranty_exp: 2020-01-01
   notes: Some notes
 
-disk_no_capacity:
+drive_no_capacity:
   name: Some name
   manufacturer: Some manufacturer
   serial_number: Some serial number
@@ -56,7 +56,7 @@ disk_no_capacity:
   warranty_exp: 2020-01-01
   notes: Some notes
 
-disk_no_format:
+drive_no_format:
   name: Some name
   manufacturer: Some manufacturer
   serial_number: Some serial number
@@ -66,8 +66,8 @@ disk_no_format:
   warranty_exp: 2020-01-01
   notes: Some notes
 
-disk_nonunique_name_1:
-  name: Same Disk Name
+drive_nonunique_name_1:
+  name: Same drive Name
   manufacturer: Some manufacturer
   serial_number: Some serial number
   part_number: Some part number
@@ -77,8 +77,8 @@ disk_nonunique_name_1:
   warranty_exp: 2020-01-01
   notes: Some notes
 
-disk_nonunique_name_2:
-  name: Same Disk Name
+drive_nonunique_name_2:
+  name: Same drive Name
   manufacturer: Some manufacturer
   serial_number: Some serial number
   part_number: Some part number
@@ -88,9 +88,9 @@ disk_nonunique_name_2:
   warranty_exp: 2020-01-01
   notes: Some notes
 
-# Disk Status Tests
+# Drive Status Tests
 
-disk_canonical:
+drive_canonical:
   name: aa00aa
   manufacturer: AAAA
   serial_number: canonical_serial_number

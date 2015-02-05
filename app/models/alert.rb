@@ -1,4 +1,4 @@
-# Alerts give the user warnings about alertable objects (i.e. disks and
+# Alerts give the user warnings about alertable objects (i.e. drives and
 # machines) based on data collected by the application. These are displayed
 # immediately upon login and they attach themselves to relevant objects.
 #
@@ -29,7 +29,7 @@ class Alert < ActiveRecord::Base
 	#
 	# ==== Example
 	#
-	#   Alert.touch(name: "Reallocations", message: "...", alertable: @disk)
+	#   Alert.touch(name: "Reallocations", message: "...", alertable: @drive)
 	#--
 	# TODO: make arguments to this method match up with attributes of Alerts.
 	#

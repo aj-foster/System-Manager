@@ -1,33 +1,33 @@
-<% page_title "Disk: #{@disk.name}" %>
+<% page_title "Drive: #{@drive.name}" %>
 			<article class="focus focus--top">
 				<div class="group">
-					<%= link_to disks_path, class: "icon fl", title: "Disk Index" do %>
+					<%= link_to drives_path, class: "icon fl", title: "Drive Index" do %>
 						<svg><use xlink:href="#icon-back"></use></svg>
 					<% end %>
 					<div class="subheader fr">
-						Last noted <%= @disk.updated_at.strftime("%l:%M%P on %-m/%-d/%y") %>
+						Last noted <%= @drive.updated_at.strftime("%l:%M%P on %-m/%-d/%y") %>
 					</div>
 				</div>
 
 				<div class="list">
 					<div class="list-item">
 						<span class="list-key">Summary</span>
-						<span class="list-value"><%= @disk.manufacturer %> <%= @disk.nice_capacity %> <%= @disk.format %></span>
+						<span class="list-value"><%= @drive.manufacturer %> <%= @drive.nice_capacity %> <%= @drive.format %></span>
 					</div>
 					<div class="list-item">
 						<span class="list-key">Serial Number</span>
-						<span class="list-value"><%= @disk.serial_number %></span>
+						<span class="list-value"><%= @drive.serial_number %></span>
 					</div>
 					<div class="list-item">
 						<span class="list-key">Location</span>
-						<span class="list-value"><%= @disk.location %></span>
+						<span class="list-value"><%= @drive.location %></span>
 					</div>
 				</div>
 
-<% if !@disk.alerts.blank? %>
+<% if !@drive.alerts.blank? %>
 				<div class="divider"></div>
-				<p class="subheader subheader--padded">Alerts (<%= @disk.alerts.count %>)</p>
-	<% for alert in @disk.alerts %>
+				<p class="subheader subheader--padded">Alerts (<%= @drive.alerts.count %>)</p>
+	<% for alert in @drive.alerts %>
 				<div class="tile">
 					<%= link_to alert, class: "icon tile-icon--a", title: "View Alert" do %>
 						<svg><use xlink:href="#icon-view"></use></svg>
@@ -51,27 +51,27 @@
 
 				<div class="divider"></div>
 				<div class="list">
-<% if @disk.part_number.present? %>
+<% if @drive.part_number.present? %>
 					<div class="list-item">
 						<span class="list-key">Part Number</span>
-						<span class="list-value"><%= @disk.part_number %></span>
+						<span class="list-value"><%= @drive.part_number %></span>
 					</div>
 <% end %>
-<% if @disk.warranty_exp.present? %>
+<% if @drive.warranty_exp.present? %>
 					<div class="list-item">
 						<span class="list-key">Warranty Exp.</span>
-						<span class="list-value"><%= @disk.warranty_exp.strftime("%-m/%-d/%y") %></span>
+						<span class="list-value"><%= @drive.warranty_exp.strftime("%-m/%-d/%y") %></span>
 					</div>
 <% end %>
 					<div class="list-item">
 						<span class="list-key">Notes</span>
-						<span class="list-value"><%= @disk.notes || "None" %></span>
+						<span class="list-value"><%= @drive.notes || "None" %></span>
 					</div>
 				</div>
 
 				<div class="divider"></div>
 				<div>
-					<%= link_to "Edit", edit_disk_path(@disk), class: "button button--first", title: "Edit Disk" %>
-					<%= link_to "Remove", @disk, method: :delete, class: "button button--danger", data: {confirm: "Are you sure you want to remove the disk #{@disk.name}?"}, title: "Remove Disk" %>
+					<%= link_to "Edit", edit_drive_path(@drive), class: "button button--first", title: "Edit Drive" %>
+					<%= link_to "Remove", @drive, method: :delete, class: "button button--danger", data: {confirm: "Are you sure you want to remove the drive #{@drive.name}?"}, title: "Remove Drive" %>
 				</div>
 			</article>

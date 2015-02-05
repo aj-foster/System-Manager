@@ -19,4 +19,4 @@
 alert_canonical:
   name: Canonical Name
   message: Alert Message
-  alertable: disk_canonical (Disk)
+  alertable: drive_canonical (Drive)

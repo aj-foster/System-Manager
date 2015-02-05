@@ -1,6 +1,6 @@
-class CreateDisks < ActiveRecord::Migration
+class CreateDrives < ActiveRecord::Migration
   def change
-    create_table :disks do |t|
+    create_table :drives do |t|
       t.references :machine, index: true
       t.string :name
       t.string :manufacturer

@@ -2,7 +2,7 @@ class Machine < ActiveRecord::Base
 
 	# Relationships
 	#
-	has_many :disks
+	has_many :drives
 	has_many :alerts, as: :alertable, dependent: :destroy
 
 

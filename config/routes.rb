@@ -19,9 +19,9 @@ Rails.application.routes.draw do
 		end
 	end
 
-	resources :disks, concerns: :alertable do
+	resources :drives, concerns: :alertable do
 		member do
-			resources :disk_statuses
+			resources :drive_statuses
 		end
 	end
 
@@ -33,6 +33,6 @@ Rails.application.routes.draw do
 	
 	resources :alerts
 	resources :extended_attributes
-	resources :disk_statuses, only: :create
+	resources :drive_statuses, only: :create
 
 end
