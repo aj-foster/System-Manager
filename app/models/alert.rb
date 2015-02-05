@@ -18,13 +18,6 @@ class Alert < ActiveRecord::Base
 	belongs_to :alertable, polymorphic: true
 
 
-	# Callbacks
-	#
-
-	# Give alerts safe default attributes.
-	after_initialize :setup_alert
-
-
 	# Allows an alert to be created if it doesn't exist or given +1
 	# multiplicity if it does.
 	#
@@ -61,13 +54,4 @@ class Alert < ActiveRecord::Base
 			Alert.create(attrs)
 		end
 	end
-
-
-	private
-
-		# Gives a new alert a multiplicity of 1 by default.
-		#
-		def setup_alert
-			self.multiplicity ||= 1
-		end
 end

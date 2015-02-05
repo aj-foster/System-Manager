@@ -11,16 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150102203048) do
+ActiveRecord::Schema.define(version: 20150205055958) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "hstore"
 
   create_table "alerts", force: true do |t|
-    t.string   "name"
-    t.string   "message"
-    t.integer  "multiplicity"
+    t.string   "name",           default: ""
+    t.string   "message",        default: ""
+    t.integer  "multiplicity",   default: 1
     t.integer  "alertable_id"
     t.string   "alertable_type"
     t.datetime "created_at"
@@ -31,12 +31,12 @@ ActiveRecord::Schema.define(version: 20150102203048) do
 
   create_table "disk_statuses", force: true do |t|
     t.integer  "disk_id"
-    t.integer  "lifetime"
-    t.integer  "reallocations"
-    t.integer  "pending"
-    t.integer  "uncorrectable"
-    t.boolean  "healthy"
-    t.integer  "ssd_wear"
+    t.integer  "lifetime",      default: 0
+    t.integer  "reallocations", default: 0
+    t.integer  "pending",       default: 0
+    t.integer  "uncorrectable", default: 0
+    t.boolean  "healthy",       default: true
+    t.integer  "ssd_wear",      default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -45,15 +45,15 @@ ActiveRecord::Schema.define(version: 20150102203048) do
 
   create_table "disks", force: true do |t|
     t.integer  "machine_id"
-    t.string   "name"
-    t.string   "manufacturer"
-    t.string   "serial_number"
-    t.string   "part_number"
-    t.integer  "capacity"
-    t.string   "format"
-    t.string   "usage"
+    t.string   "name",          default: ""
+    t.string   "manufacturer",  default: ""
+    t.string   "serial_number", default: ""
+    t.string   "part_number",   default: ""
+    t.integer  "capacity",      default: 0
+    t.string   "format",        default: "HDD"
+    t.string   "usage",         default: ""
     t.date     "warranty_exp"
-    t.text     "notes"
+    t.text     "notes",         default: ""
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -61,33 +61,33 @@ ActiveRecord::Schema.define(version: 20150102203048) do
   add_index "disks", ["machine_id"], name: "index_disks_on_machine_id", using: :btree
 
   create_table "extended_attributes", force: true do |t|
-    t.string   "model"
-    t.string   "name"
+    t.string   "model",      default: ""
+    t.string   "name",       default: ""
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "machines", force: true do |t|
-    t.string   "name"
-    t.string   "location"
-    t.string   "ip_address"
-    t.hstore   "info"
+    t.string   "name",       default: ""
+    t.string   "location",   default: ""
+    t.string   "ip_address", default: ""
+    t.hstore   "info",       default: {}
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
-    t.string   "name"
-    t.string   "role"
-    t.boolean  "send_alerts"
+    t.string   "name",                   default: ""
+    t.string   "role",                   default: "unapproved"
+    t.boolean  "send_alerts",            default: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",           null: false
+    t.string   "encrypted_password",     default: "",           null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,            null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"

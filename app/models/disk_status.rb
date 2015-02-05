@@ -17,9 +17,6 @@ class DiskStatus < ActiveRecord::Base
 	# Callbacks
 	#
 
-	# Give each status safe default values for comparison purposes.
-	after_initialize :setup_disk_status
-
 	# Evaluate each new disk status during creation for alertable data.
 	after_create :evaluate_status
 
@@ -84,18 +81,5 @@ class DiskStatus < ActiveRecord::Base
 									 "This may indicate data loss.",
 							alertable: @disk)
 			end
-		end
-
-
-		# Gives a disk status safe default values to protect against nil
-		# comparisons.
-		#
-		def setup_disk_status
-			self.healthy ||= true
-			self.lifetime ||= 0
-			self.pending ||= 0
-			self.reallocations ||= 0
-			self.ssd_wear ||= 0
-			self.uncorrectable ||= 0
 		end
 end
