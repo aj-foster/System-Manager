@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 		end
 	end
 
-	resources :users, only: [:index, :show, :update] do
+	resources :users, only: [:index, :show, :update, :destroy] do
 		member do
 			put :approve
 		end
