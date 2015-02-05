@@ -31,9 +31,11 @@ class User < ActiveRecord::Base
 
 	private
 
-		# Gives users a default role of unapproved for security.
+		# Gives users a default role of unapproved for security, and do not send
+		# alert emails.
 		#
 		def setup_user
 			self.role ||= :unapproved
+			self.send_alerts ||= false
 		end
 end
