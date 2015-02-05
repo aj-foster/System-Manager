@@ -25,7 +25,10 @@ class UsersController < ApplicationController
 		if @user.update(user_params)
 			redirect_to @user, notice: "Updated information about #{@user.name}."
 		else
-			redirect_to @user, error: "Error: Could not update user."
+			errors = @user.errors
+			@user = User.find(params[:id])
+			errors.each { |error, msg| @user.errors.add error, msg}
+			render :show
 		end
 	end
 

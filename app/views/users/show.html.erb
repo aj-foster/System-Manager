@@ -1,0 +1,84 @@
+<% page_title "User: #{@user.name}" %>
+			<article class="focus focus--top">
+				<div class="group">
+					<%= link_to users_path, class: "icon fl", title: "User Index" do %>
+						<svg><use xlink:href="#icon-back"></use></svg>
+					<% end %>
+					<div class="subheader fr">
+						Last updated <%= @user.updated_at.strftime("%l:%M%P on %-m/%-d/%y") %>
+					</div>
+				</div>
+
+				<p class="subheader">Basic Information</p>
+				<div class="list">
+					<div class="list-item">
+						<span class="list-key">Name</span>
+						<span class="list-value"><%= @user.name %></span>
+					</div>
+					<div class="list-item">
+						<span class="list-key">Email</span>
+						<span class="list-value">
+							<a href="mailto:<%= @user.email %>">
+								<%= @user.email %>
+							</a>
+						</span>
+					</div>
+				</div>
+
+				<div class="divider"></div>
+				<%= form_for @user, html: { novalidate: true } do |f| %>
+
+					<div class="fieldSet">
+						<div class="fieldSet-column">
+							<p class="subheader">Edit User</p>
+
+							<div class="textField <%= "has-error" if @user.errors.include? :name %>">
+								<%= f.label :name, "Name", class: "is-required" %>
+								<%= f.text_field :name, placeholder: "Rob", required: true, autofocus: true %>
+<% if @user.errors.include? :name %>
+								<div class="textField-error"><%= @user.errors.full_messages_for(:name).first %></div>
+<% end %>
+							</div>
+
+							<div class="textField <%= "has-error" if @user.errors.include? :email %>">
+								<%= f.label :email, "Email", class: "is-required" %>
+								<%= f.email_field :email, placeholder: "rob@example.com", required: true %>
+<% if @user.errors.include? :email %>
+								<div class="textField-error"><%= @user.errors.full_messages_for(:email).first %></div>
+<% end %>
+							</div>
+
+							<div class="textField">
+								<%= f.label :send_alerts, "Send Alerts" %>
+								<%= f.check_box :send_alerts %>
+								Send email alerts to this user?
+							</div>
+						</div>
+
+						<div class="fieldSet-column">
+							<p class="subheader">Change Password</p>
+
+							<div class="textField <%= "has-error" if @user.errors.include? :password %>">
+								<%= f.label :password, "New Password" %>
+								<%= f.password_field :password, placeholder: "8 Characters Minimum" %>
+<% if @user.errors.include? :password %>
+								<div class="textField-error"><%= @user.errors.full_messages_for(:password).first %></div>
+<% end %>
+							</div>
+
+							<div class="textField <%= "has-error" if @user.errors.include? :password_confirmation %>">
+								<%= f.label :password_confirmation, "Confirm New Password" %>
+								<%= f.password_field :password_confirmation %>
+<% if @user.errors.include? :password_confirmation %>
+								<div class="textField-error"><%= @user.errors.full_messages_for(:password_confirmation).first %></div>
+<% end %>
+							</div>
+						</div>
+					</div>
+
+					<div>
+						<%= f.submit "Save Changes", class: "button button--first", title: "Update User" %>
+						<%= link_to "Remove", @user, method: :delete, class: "button button--danger", data: {confirm: "Are you sure you want to remove #{@user.name}?"}, title: "Remove User" %>
+					</div>
+				<% end %>
+			</article>
