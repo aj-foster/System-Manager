@@ -4,11 +4,11 @@
 
 					<p>If you've forgotten your password, input your e-mail address below. You'll receive an e-mail with instructions on how to reset it.</p>
 
-					<div class="textField <%= "has-error" if resource.errors.include? :email %>">
+					<div class="field field--text <%= "has-error" if resource.errors.include? :email %>">
 						<%= f.label :email, "Your Email", class: "is-required" %>
 						<%= f.email_field :email, placeholder: "rob@example.com", required: true, autofocus: true %>
 <% if resource.errors.include? :email %>
-						<div class="textField-error"><%= resource.errors.full_messages_for(:email).first %></div>
+						<div class="field field--text-error"><%= resource.errors.full_messages_for(:email).first %></div>
 <% end %>
 					</div>
 

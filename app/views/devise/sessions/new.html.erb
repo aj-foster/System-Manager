@@ -1,12 +1,12 @@
 <% page_title "Log In" %>
 			<article class="focus focus--top">
 				<%= form_for resource, as: resource_name, url: session_path(resource_name), html: {novalidate: true} do |f| %>
-					<div class="textField">
+					<div class="field field--text">
 						<%= f.label :email, "Your Email", class: "is-required" %>
 						<%= f.email_field :email, placeholder: "you@example.com", required: true, autofocus: true %>
 					</div>
 
-					<div class="textField">
+					<div class="field field--text">
 						<%= f.label :password, "Your Password", class: "is-required" %>
 						<%= f.password_field :password, required: true, autocomplete: "off" %>
 					</div>

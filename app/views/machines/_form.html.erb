@@ -8,27 +8,27 @@
 						<div class="fieldSet-column">
 							<p class="subheader">Basic Information</p>
 
-							<div class="textField <%= "has-error" if @machine.errors.include? :name %>">
+							<div class="field field--text <%= "has-error" if @machine.errors.include? :name %>">
 								<%= f.label :name, "Machine Name", class: "is-required" %>
 								<%= f.text_field :name, placeholder: "Rob's Desktop", required: true, autofocus: true %>
 <% if @machine.errors.include? :name %>
-								<div class="textField-error"><%= @machine.errors.full_messages_for(:name).first %></div>
+								<div class="field field--text-error"><%= @machine.errors.full_messages_for(:name).first %></div>
 <% end %>
 							</div>
 
-							<div class="textField <%= "has-error" if @machine.errors.include? :location %>">
+							<div class="field field--text <%= "has-error" if @machine.errors.include? :location %>">
 								<%= f.label :location, "Physical Location" %>
 								<%= f.text_field :location, placeholder: "PSB 354" %>
 <% if @machine.errors.include? :location %>
-								<div class="textField-error"><%= @machine.errors.full_messages_for(:location).first %></div>
+								<div class="field field--text-error"><%= @machine.errors.full_messages_for(:location).first %></div>
 <% end %>
 							</div>
 
-							<div class="textField <%= "has-error" if @machine.errors.include? :ip_address %>">
+							<div class="field field--text <%= "has-error" if @machine.errors.include? :ip_address %>">
 								<%= f.label :ip_address, "IP Address" %>
 								<%= f.text_field :ip_address, placeholder: "10.0.0.1" %>
 <% if @machine.errors.include? :ip_address %>
-								<div class="textField-error"><%= @machine.errors.full_messages_for(:ip_address).first %></div>
+								<div class="field field--text-error"><%= @machine.errors.full_messages_for(:ip_address).first %></div>
 <% end %>
 							</div>
 						</div>
@@ -37,7 +37,7 @@
 							<p class="subheader">Extended Attributes</p>
 <%= f.fields_for :info do |i| %>
 	<% for ex_attr in @ex_attrs %>
-							<div class="textField">
+							<div class="field field--text">
 								<%= i.label ex_attr.name, ex_attr.name %>
 								<%= i.text_field ex_attr.name, value: @machine.info[ex_attr.name], placeholder: "Optional Attribute" %>
 							</div>

@@ -7,21 +7,21 @@
 	border-bottom: 1px solid $c-text-divider
 	flex: 1 0 auto
 
-.textField
+.field
 	padding: 1em 1em 0
 	margin-bottom: 1em
 	min-width: em(250px)
 
-.textField > label
+.field > label
 	color: $c-text-secondary
 	display: block
 	font-size: 0.75em
 	margin-bottom: (2em / 3)
 
-.textField > label.is-required:after
+.field > label.is-required:after
 	content: ' *'
 
-.textField
+.field--text
 	input[type='text'], input[type='email'], input[type='password']
 		border: 0px none
 		border-bottom: 2px solid $c-text-divider
@@ -33,18 +33,18 @@
 		&:active, &:focus
 			border-bottom: 2px solid $c-accent
 
-.textField.has-error
+.field--text.has-error
 	input[type='text'], input[type='email'], input[type='password']
 		border-bottom: 2px solid $c-danger
 		margin-bottom: 0.25em
 
-.textField-error
+.field--text-error
 	color: $c-danger
 	display: block
 	font-size: 0.75em
 	margin-bottom: (1em / 3)
 
-.textField-subtitle
+.field--text-subtitle
 	color: $c-text-secondary
 	display: block
 	font-size: 0.75em

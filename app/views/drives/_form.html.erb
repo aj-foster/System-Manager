@@ -8,35 +8,35 @@
 						<div class="fieldSet-column">
 							<p class="subheader">Required Information</p>
 
-							<div class="textField <%= "has-error" if @drive.errors.include? :name %>">
+							<div class="field field--text <%= "has-error" if @drive.errors.include? :name %>">
 								<%= f.label :name, "Drive Name", class: "is-required" %>
 								<%= f.text_field :name, placeholder: "hg80ua", required: true, autofocus: true %>
 <% if @drive.errors.include? :name %>
-								<div class="textField-error"><%= @drive.errors.full_messages_for(:name).first %></div>
+								<div class="field field--text-error"><%= @drive.errors.full_messages_for(:name).first %></div>
 <% end %>
 							</div>
 
-							<div class="textField <%= "has-error" if @drive.errors.include? :capacity %>">
+							<div class="field field--text <%= "has-error" if @drive.errors.include? :capacity %>">
 								<%= f.label :capacity, "Capacity (in GB)", class: "is-required" %>
 								<%= f.text_field :capacity, placeholder: "8000", required: true %>
 <% if @drive.errors.include? :capacity %>
-								<div class="textField-error"><%= @drive.errors.full_messages_for(:capacity).first %></div>
+								<div class="field field--text-error"><%= @drive.errors.full_messages_for(:capacity).first %></div>
 <% end %>
 							</div>
 
-							<div class="textField <%= "has-error" if @drive.errors.include? :format %>">
+							<div class="field field--text <%= "has-error" if @drive.errors.include? :format %>">
 								<%= f.label :format, "Format (ex. HDD, SSD)", class: "is-required" %>
 								<%= f.text_field :format, placeholder: "HDD", required: true %>
 <% if @drive.errors.include? :format %>
-								<div class="textField-error"><%= @drive.errors.full_messages_for(:format).first %></div>
+								<div class="field field--text-error"><%= @drive.errors.full_messages_for(:format).first %></div>
 <% end %>
 							</div>
 
-							<div class="textField <%= "has-error" if @drive.errors.include? :serial_number %>">
+							<div class="field field--text <%= "has-error" if @drive.errors.include? :serial_number %>">
 								<%= f.label :serial_number, "Serial Number", class: "is-required" %>
 								<%= f.text_field :serial_number, placeholder: "2EG20GDG", required: true %>
 <% if @drive.errors.include? :serial_number %>
-								<div class="textField-error"><%= @drive.errors.full_messages_for(:serial_number).first %></div>
+								<div class="field field--text-error"><%= @drive.errors.full_messages_for(:serial_number).first %></div>
 <% end %>
 							</div>
 
@@ -45,43 +45,43 @@
 						<div class="fieldSet-column">
 							<p class="subheader">Other Information</p>
 
-							<div class="textField <%= "has-error" if @drive.errors.include? :manufacturer %>">
+							<div class="field field--text <%= "has-error" if @drive.errors.include? :manufacturer %>">
 								<%= f.label :manufacturer, "Manufacturer" %>
 								<%= f.text_field :manufacturer, placeholder: "HGST" %>
 <% if @drive.errors.include? :manufacturer %>
-								<div class="textField-error"><%= @drive.errors.full_messages_for(:manufacturer).first %></div>
+								<div class="field field--text-error"><%= @drive.errors.full_messages_for(:manufacturer).first %></div>
 <% end %>
 							</div>
 
-							<div class="textField <%= "has-error" if @drive.errors.include? :part_number %>">
+							<div class="field field--text <%= "has-error" if @drive.errors.include? :part_number %>">
 								<%= f.label :part_number, "Part or Model Number" %>
 								<%= f.text_field :part_number, placeholder: "HUH728080ALE600" %>
 <% if @drive.errors.include? :part_number %>
-								<div class="textField-error"><%= @drive.errors.full_messages_for(:part_number).first %></div>
+								<div class="field field--text-error"><%= @drive.errors.full_messages_for(:part_number).first %></div>
 <% end %>
 							</div>
 
-							<div class="textField <%= "has-error" if @drive.errors.include? :usage %>">
+							<div class="field field--text <%= "has-error" if @drive.errors.include? :usage %>">
 								<%= f.label :usage %>
 								<%= f.text_field :usage, placeholder: "/b1" %>
 <% if @drive.errors.include? :usage %>
-								<div class="textField-error"><%= @drive.errors.full_messages_for(:usage).first %></div>
+								<div class="field field--text-error"><%= @drive.errors.full_messages_for(:usage).first %></div>
 <% end %>
 							</div>
 
-							<div class="textField <%= "has-error" if @drive.errors.include? :warranty_exp %>">
+							<div class="field field--text <%= "has-error" if @drive.errors.include? :warranty_exp %>">
 								<%= f.label :warranty_exp, "Warranty Expiration" %>
 								<%= f.date_field :warranty_exp, placeholder: "November 2017" %>
 <% if @drive.errors.include? :warranty_exp %>
-								<div class="textField-error"><%= @drive.errors.full_messages_for(:warranty_exp).first %></div>
+								<div class="field field--text-error"><%= @drive.errors.full_messages_for(:warranty_exp).first %></div>
 <% end %>
 							</div>
 
-							<div class="textField <%= "has-error" if @drive.errors.include? :notes %>">
+							<div class="field field--text <%= "has-error" if @drive.errors.include? :notes %>">
 								<%= f.label :notes %>
 								<%= f.text_area :notes %>
 <% if @drive.errors.include? :notes %>
-								<div class="textField-error"><%= @drive.errors.full_messages_for(:notes).first %></div>
+								<div class="field field--text-error"><%= @drive.errors.full_messages_for(:notes).first %></div>
 <% end %>
 							</div>
 						</div>

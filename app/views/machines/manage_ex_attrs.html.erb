@@ -17,7 +17,7 @@
 				<div class="divider"></div>
 				<p class="subheader">Add Property</p>
 				<%= form_for ExtendedAttribute.new do |f| %>
-					<div class="textField">
+					<div class="field field--text">
 						<%= f.label :name, "Name" %>
 						<%= f.text_field :name, placeholder: "New Attribute" %>
 					</div>
