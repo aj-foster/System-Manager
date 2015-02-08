@@ -59,6 +59,7 @@ class DrivesController < ApplicationController
 	private
 
 		def drive_params
+			params[:drive].delete(:machine_id) unless Machine.where(id: params[:drive][:machine_id]).any?
 			params.require(:drive).permit!
 		end
 end
