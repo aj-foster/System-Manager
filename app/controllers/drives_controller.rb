@@ -16,6 +16,10 @@ class DrivesController < ApplicationController
 
 	def show
 		@drive = Drive.find(params[:id])
+
+		if @drive.drive_statuses.any?
+			@status = @drive.drive_statuses.order(created_at: :desc).first
+		end
 	end
 
 	def new

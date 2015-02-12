@@ -69,6 +69,25 @@
 					</div>
 				</div>
 
+<% if @status.present? %>
+				<div class="divider"></div>
+				<p class="subheader">Drive Status (as of <%= @status.created_at.strftime("%l:%M%P on %-m/%-d/%y") %>)</p>
+				<div class="list">
+					<div class="list-item">
+						<div class="list-key">Reallocated Sectors</div>
+						<div class="list-value"><%= @status.reallocations %></div>
+					</div>
+					<div class="list-item">
+						<div class="list-key">Pending Reallocations</div>
+						<div class="list-value"><%= @status.pending %></div>
+					</div>
+					<div class="list-item">
+						<div class="list-key">Uncorrectable Errors</div>
+						<div class="list-value"><%= @status.uncorrectable %></div>
+					</div>
+				</div>
+<% end %>
+
 				<div class="divider"></div>
 				<div>
 					<%= link_to "Edit", edit_drive_path(@drive), class: "button button--first", title: "Edit Drive" %>
