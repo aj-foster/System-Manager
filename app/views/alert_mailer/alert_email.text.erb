@@ -1,0 +1,13 @@
+Hello,
+
+The System Manager application (http://planets.ucf.edu/systems) has generated an alert:
+
+Name: <%= @alert.name %>
+Message: <%= @alert.message %>
+<% if @alert.alertable.present? %>
+Related Property: <%= @alert.alertable.name %> (<%= @alert.alertable_type %>)
+<% end %>
+
+This e-mail was automatically generated, and you will not receive any more e-mails concerning this particular alert. You can change your e-mail settings by logging into the application and goign to "View Users" and selecting your name.
+
+- System Manager

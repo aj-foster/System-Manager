@@ -51,7 +51,8 @@ class Alert < ActiveRecord::Base
 				alert.save
 			end
 		else
-			Alert.create(attrs)
+			alert = Alert.create(attrs)
+			AlertMailer.alert_email(alert).deliver
 		end
 	end
 end
