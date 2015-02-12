@@ -78,7 +78,7 @@
 
 							<div class="field field--text <%= "has-error" if @drive.errors.include? :warranty_exp %>">
 								<%= f.label :warranty_exp, "Warranty Expiration" %>
-								<%= f.date_field :warranty_exp, placeholder: "November 2017" %>
+								<%= f.text_field :warranty_exp, placeholder: "mm/dd/yyyy", value: @drive.warranty_exp.present? ? @drive.warranty_exp.strftime("%m/%d/%Y") : "" %>
 <% if @drive.errors.include? :warranty_exp %>
 								<div class="field field--text-error"><%= @drive.errors.full_messages_for(:warranty_exp).first %></div>
 <% end %>
