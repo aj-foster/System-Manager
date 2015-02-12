@@ -81,5 +81,9 @@ class DriveStatus < ActiveRecord::Base
 									 "This may indicate data loss.",
 							alertable: @drive)
 			end
+
+			# Clean up all except the current drive status.
+			timestamp = @current.created_at
+			DriveStatus.where(drive: @drive).destroy_all("created_at < '#{timestamp}'")
 		end
 end
