@@ -23,6 +23,34 @@
 				</div>
 <% end %>
 
+<% if @machine.drives.any? %>
+				<div class="divider"></div>
+				<p class="subheader subheader--padded">Related Drives</p>
+	<% @machine.drives.each do |drive| %>
+				<div class="tile">
+					<%= link_to drive, class: "icon tile-icon--a", title: "View Drive" do %>
+						<svg><use xlink:href="#icon-view"></use></svg>
+					<% end %>
+					<%= link_to drive, class: "tile-action tile-action--focus", title: "View Drive" do %>
+						<div class="tile-text">
+							<div class="tile-title">
+								<%= drive.name %>
+								<%= "(" + pluralize(drive.alerts.count, 'Alert') + ")" if drive.alerts.any? %>
+							</div>
+							<div class="tile-subtitle">
+								<%= drive.format %> &mdash;
+								<%= drive.nice_capacity %>
+								<%= "&mdash; ".html_safe + drive.location unless drive.location.blank? %>
+							</div>
+						</div>
+					<% end %>
+					<%= link_to edit_drive_path(drive), class: "icon tile-icon--b", title: "Edit Drive" do %>
+						<svg><use xlink:href="#icon-edit"></use></svg>
+					<% end %>
+				</div>
+	<% end %>
+<% end %>
+
 				<div class="divider"></div>
 				<div>
 					<%= link_to "Edit", edit_machine_path(@machine), class: "button button--first", title: "Edit Machine" %>
