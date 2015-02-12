@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 	authenticated :user do
 		root :to => 'alerts#index', :as => :authenticated_root
 	end
-	root :to => redirect('/users/sign_in')
+	devise_scope :user do
+		root :to => 'devise/sessions#new'
+	end
 
 	concern :alertable do
 		resources :alerts
