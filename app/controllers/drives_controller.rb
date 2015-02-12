@@ -66,7 +66,7 @@ class DrivesController < ApplicationController
 		def drive_params
 
 			# Remove machine IDs that do not correspond to real machines.
-			params[:drive].delete(:machine_id) unless Machine.where(id: params[:drive][:machine_id]).any?
+			params[:drive][:machine_id] = nil unless Machine.where(id: params[:drive][:machine_id]).any?
 
 			# Change the warranty expiration into a date object.
 			begin
