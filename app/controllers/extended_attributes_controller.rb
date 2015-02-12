@@ -1,6 +1,7 @@
 class ExtendedAttributesController < ApplicationController
 
 	before_filter :authenticate_user!
+	before_filter :authorize_user!
 
 	def create
 		@ex_attr = ExtendedAttribute.create(ex_attr_params)

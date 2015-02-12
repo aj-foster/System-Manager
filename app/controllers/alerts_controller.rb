@@ -1,5 +1,8 @@
 class AlertsController < ApplicationController
 
+	before_filter :authenticate_user!
+	before_filter :authorize_user!
+
 	def index
 		@alerts = Alert.order(updated_at: :desc)
 	end

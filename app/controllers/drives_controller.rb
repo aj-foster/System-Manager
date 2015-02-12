@@ -1,6 +1,7 @@
 class DrivesController < ApplicationController
 
 	before_filter :authenticate_user!
+	before_filter :authorize_user!
 
 	def index
 		@drives = Drive.includes(:alerts).order(name: :asc)

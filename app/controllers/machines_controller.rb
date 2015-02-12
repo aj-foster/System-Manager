@@ -1,6 +1,7 @@
 class MachinesController < ApplicationController
 
 	before_filter :authenticate_user!
+	before_filter :authorize_user!
 
 	def index
 		@machines = Machine.includes(:alerts).order(name: :asc)

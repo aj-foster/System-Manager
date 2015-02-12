@@ -41,6 +41,3 @@ gem 'capistrano-rails', group: :development
 
 # Devise for authentication
 gem 'devise'
-
-# CanCan for authorization
-gem 'cancan'
