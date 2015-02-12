@@ -49,6 +49,11 @@
 							</div>
 
 							<div class="field">
+								<%= f.label :role, "User Status" %>
+								<%= f.collection_select :role, [:unapproved, :approved], :to_s, :capitalize %>
+							</div>
+
+							<div class="field">
 								<%= f.label :send_alerts, "Send Alerts" %>
 								<%= f.check_box :send_alerts %>
 								Send email alerts to this user?
