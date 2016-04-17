@@ -11,17 +11,6 @@
 
 				<p class="subheader">Location</p>
 				<p><%= @machine.nice_location %></p>
-<!-- <% unless @machine.info.blank? %>
-				<div class="divider"></div>
-				<div class="list">
-	<% @machine.info.sort.each do |key, value| %>
-					<div class="list-item">
-						<span class="list-key"><%= key %></span>
-						<span class="list-value"><%= value %></span>
-					</div>
-	<% end %>
-				</div>
-<% end %> -->
 
 <% if @machine.drives.any? %>
 				<div class="divider"></div>
