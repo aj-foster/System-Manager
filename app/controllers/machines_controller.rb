@@ -20,8 +20,8 @@ class MachinesController < ApplicationController
 
 	def new
 		@machine = Machine.new
-		@ex_attrs = ExtendedAttribute.where(model: :machine).order(name: :asc)
-		@machine.info ||= {}
+		# @ex_attrs = ExtendedAttribute.where(model: :machine).order(name: :asc)
+		# @machine.info ||= {}
 	end
 
 	def create
@@ -36,8 +36,8 @@ class MachinesController < ApplicationController
 
 	def edit
 		@machine = Machine.find(params[:id])
-		@ex_attrs = ExtendedAttribute.where(model: :machine).order(name: :asc)
-		@machine.info ||= {}
+		# @ex_attrs = ExtendedAttribute.where(model: :machine).order(name: :asc)
+		# @machine.info ||= {}
 	end
 
 	def update
@@ -50,9 +50,9 @@ class MachinesController < ApplicationController
 		end
 	end
 
-	def manage_ex_attrs
-		@ex_attrs = ExtendedAttribute.where(model: :machine).order(name: :asc)
-	end
+	# def manage_ex_attrs
+	# 	@ex_attrs = ExtendedAttribute.where(model: :machine).order(name: :asc)
+	# end
 
 	def destroy
 		@machine = Machine.find(params[:id])
@@ -68,8 +68,8 @@ class MachinesController < ApplicationController
 	private
 
 		def machine_params
-			params[:machine][:info] ||= {}
-			params[:machine][:info].delete_if { |k,v| v.blank? }
+			# params[:machine][:info] ||= {}
+			# params[:machine][:info].delete_if { |k,v| v.blank? }
 			params.require(:machine).permit!
 		end
 end

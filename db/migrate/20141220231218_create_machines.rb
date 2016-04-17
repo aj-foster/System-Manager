@@ -4,7 +4,7 @@ class CreateMachines < ActiveRecord::Migration
 			t.string :name
 			t.string :location
 			t.string :ip_address
-			t.hstore :info
+			# t.hstore :info
 
 			t.timestamps
 		end

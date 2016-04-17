@@ -3,7 +3,7 @@ class SetDefaults < ActiveRecord::Migration
   	change_column :machines, :name, :string, default: ""
   	change_column :machines, :location, :string, default: ""
   	change_column :machines, :ip_address, :string, default: ""
-  	change_column :machines, :info, :hstore, default: {}
+  	# change_column :machines, :info, :hstore, default: {}
 
   	change_column :drives, :name, :string, default: ""
   	change_column :drives, :manufacturer, :string, default: ""

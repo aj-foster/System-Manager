@@ -13,10 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20150205055958) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-  enable_extension "hstore"
-
   create_table "alerts", force: true do |t|
     t.string   "name",           default: ""
     t.string   "message",        default: ""
@@ -27,7 +23,7 @@ ActiveRecord::Schema.define(version: 20150205055958) do
     t.datetime "updated_at"
   end
 
-  add_index "alerts", ["alertable_id", "alertable_type"], name: "index_alerts_on_alertable_id_and_alertable_type", using: :btree
+  add_index "alerts", ["alertable_id", "alertable_type"], name: "index_alerts_on_alertable_id_and_alertable_type"
 
   create_table "drive_statuses", force: true do |t|
     t.integer  "drive_id"
@@ -41,7 +37,7 @@ ActiveRecord::Schema.define(version: 20150205055958) do
     t.datetime "updated_at"
   end
 
-  add_index "drive_statuses", ["drive_id"], name: "index_drive_statuses_on_drive_id", using: :btree
+  add_index "drive_statuses", ["drive_id"], name: "index_drive_statuses_on_drive_id"
 
   create_table "drives", force: true do |t|
     t.integer  "machine_id"
@@ -58,7 +54,7 @@ ActiveRecord::Schema.define(version: 20150205055958) do
     t.datetime "updated_at"
   end
 
-  add_index "drives", ["machine_id"], name: "index_drives_on_machine_id", using: :btree
+  add_index "drives", ["machine_id"], name: "index_drives_on_machine_id"
 
   create_table "extended_attributes", force: true do |t|
     t.string   "model",      default: ""
@@ -71,7 +67,6 @@ ActiveRecord::Schema.define(version: 20150205055958) do
     t.string   "name",       default: ""
     t.string   "location",   default: ""
     t.string   "ip_address", default: ""
-    t.hstore   "info",       default: {}
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -90,11 +85,11 @@ ActiveRecord::Schema.define(version: 20150205055958) do
     t.integer  "sign_in_count",          default: 0,            null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.inet     "current_sign_in_ip"
-    t.inet     "last_sign_in_ip"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end
